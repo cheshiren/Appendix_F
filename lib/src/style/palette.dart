@@ -34,4 +34,7 @@ class Palette {
   Color get background4 => const Color(0xffffd7ff);
   Color get backgroundSettings => const Color(0xffbfc8e3);
   Color get trueWhite => const Color(0xffffffff);
+
+  Color get coverColor => const Color(0xff483930);
+  Color get goldenLettersColor => const Color(0xffF1D6A1);
 }
