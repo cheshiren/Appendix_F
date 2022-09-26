@@ -2,18 +2,21 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:ui' as ui;
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:inner_shadow_widget/inner_shadow_widget.dart';
 
 import '../audio/audio_controller.dart';
 import '../audio/sounds.dart';
 import '../settings/settings.dart';
 import '../style/palette.dart';
 import '../style/responsive_screen.dart';
+import '../style/typography.dart';
 
 class FrontCoverScreen extends StatelessWidget {
   const FrontCoverScreen({super.key});
@@ -29,29 +32,27 @@ class FrontCoverScreen extends StatelessWidget {
       body: ResponsiveScreen(
         mainAreaProminence: 0.45,
         squarishMainArea: Center(
-          // child: Transform.rotate(
-          // angle: -0.1,
-          child: Text(
-            'КГБ СССР',
-            textAlign: TextAlign.center,
-            // style: TextStyle(
-            //   fontFamily: 'Orelega One',
-            //   fontSize: 55,
-            //   height: 1,
-            // ),
-            style: GoogleFonts.orelegaOne(
-                fontSize: 96,
-                color: palette.goldenLettersColor,
-                shadows: [
-                  Shadow(
-                    // color: Color(0xFFFFFCDF),
-                    color: Color(0x40000000),
-                    offset: Offset.fromDirection(-pi / 2, 3),
-                    blurRadius: 2,
-                  ),
-                ]),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CoverLettering(
+                text: "КГБ СССР",
+                letterSpacing: 10,
+              ),
+              CoverLettering(
+                text: "УПРАВЛЕНИЕ -Т-",
+                fontSize: 48,
+                letterSpacing: 20,
+              ),
+              Spacer(),
+              CoverLettering(
+                text: "МАТЕРИАЛЫ ДЕЛА",
+                fontSize: 48,
+                letterSpacing: 20,
+              ),
+              Spacer(),
+            ],
           ),
-          // ),
         ),
         rectangularMenuArea: Column(
           mainAxisAlignment: MainAxisAlignment.end,
