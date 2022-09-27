@@ -176,7 +176,7 @@ class AudioController {
       }
     } else {
       // Music got turned off.
-      _stopMusic();
+      stopMusic();
     }
   }
 
@@ -251,7 +251,7 @@ class AudioController {
     }
   }
 
-  void _stopMusic() {
+  void stopMusic() {
     _log.info('Stopping music');
     if (_musicPlayer.state == PlayerState.playing) {
       _musicPlayer.pause();

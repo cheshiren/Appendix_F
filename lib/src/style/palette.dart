@@ -37,4 +37,9 @@ class Palette {
 
   Color get coverColor => const Color(0xff483930);
   Color get goldenLettersColor => const Color(0xffF1D6A1);
+  Color get tableColor => Color(0xFF1b4d3f);
+  Color get oldPaperColor => Color(0xFFE7DEC7);
+  Color get newPaperColor => Color(0xFFE0E0E6);
+  Color get penColor => Color(0xFF575C90);
+  Color get inkColor => Color(0xFF473958);
 }

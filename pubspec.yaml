@@ -1,4 +1,4 @@
-name: game_template
+name: Appendix_F
 description: A mobile game built in Flutter.
 
 # Prevent accidental publishing to pub.dev.
@@ -22,6 +22,7 @@ dependencies:
 
   google_fonts: ^3.0.1
   inner_shadow_widget: ^0.0.3
+  flutter_svg: ^1.1.5
 
   # If you don't need one of the following dependencies,
   # delete the relevant line below, and get rid of any Dart code
