@@ -4,6 +4,8 @@
 
 Использован шаблон [Casual Game Toolkit](https://github.com/flutter/samples/tree/main/game_template).
 
+Процесс разработки описываю на [своём канале в Дзене](https://dzen.ru/klockwerkkat).
+
 Figma -> Flutter
 
 ![Из Figma](./assets/for_readme/Figma_Cover.png)![Во Flutter](./assets/for_readme/Flutter_Cover.png)
