@@ -1,11 +1,11 @@
-import 'dart:ui' as ui;
+// import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inner_shadow_widget/inner_shadow_widget.dart';
 
-import '../style/palette.dart';
+import 'palette.dart';
 
 class CoverLettering extends StatelessWidget {
   const CoverLettering({

@@ -123,3 +123,65 @@ class ResponsiveScreen extends StatelessWidget {
     );
   }
 }
+
+// stackoverflow code
+// https://stackoverflow.com/a/71645130/12785478
+
+final window = WidgetsBinding.instance.window;
+Size size = window.physicalSize / window.devicePixelRatio;
+num padding = 8.0;
+
+/// This method is used to set padding/margin (for the left and Right side)
+/// and width of the screen or widget according to the Viewport width.
+double getHorizontalSize(double px) {
+  num screenWidth = size.width - padding * 2;
+  return px * (screenWidth / (1024 / 8));
+}
+
+/// This method is used to set padding/margin (for the top and bottom side)
+/// and height of the screen or widget according to the Viewport height.
+double getVerticalSize(double px) {
+  num statusBar = MediaQueryData.fromWindow(window).viewPadding.top;
+  num screenHeight = size.height - statusBar - padding * 2;
+  return px * (screenHeight / (1360 / 8));
+}
+
+/// This method is used to set smallest px in image height and width.
+double getSize(double px) {
+  final height = getVerticalSize(px);
+  final width = getHorizontalSize(px);
+
+  if (height < width) {
+    return height; //.toInt().toDouble();
+  } else {
+    return width; //.toInt().toDouble();
+  }
+}
+
+/// This method is used to set text font size according to Viewport.
+double getFontSize(double px) {
+  // final double fontSize = (px * pt * 1.226 / 8).floor() * 8;
+  final double fontSize = (px * pt); //.toInt().toDouble();
+  // final fontSize = getSize(px);
+  return fontSize;
+}
+
+double pt = getSize(1); // size of local point (default is 8)
+
+double f96 = 12 * pt; // 96px
+double f48 = 6 * pt; //  48px
+double f40 = 5 * pt; //  40px
+double f24 = 3 * pt; //  24px
+double W = getSize(128);
+double H = getSize(170);
+
+void calculateSizes() {
+  size = window.physicalSize / window.devicePixelRatio;
+  pt = getSize(1); // size of local point (default is 8)
+  f96 = 12 * pt; // 96px
+  f48 = 6 * pt; //  48px
+  f40 = 5 * pt; //  40px
+  f24 = 3 * pt; //  24px
+  W = getSize(128);
+  H = getSize(170);
+}
