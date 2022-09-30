@@ -2,6 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:html';
 import 'dart:ui';
 import 'dart:math';
 
@@ -221,36 +222,38 @@ class Photo1AScreen extends StatelessWidget {
                                       blurRadius: pt / 2,
                                     ),
                                   ],
+                                  border: Border(
+                                    top: BorderSide(
+                                      color: Color(0xFFF8E9B9),
+                                      width: pt / 2,
+                                    ),
+                                  ),
                                 ),
                                 child: Stack(
                                   alignment: AlignmentDirectional.center,
                                   children: [
-                                    Column(
-                                      children: [
-                                        Divider(
-                                          height: 4 * pt,
-                                          thickness: pt / 4,
-                                          indent: 2 * pt,
-                                          endIndent: 2 * pt,
-                                          color: Colors.transparent,
-                                        ),
-                                        _divider(),
-                                        _divider(),
-                                        _divider(),
-                                        _divider(),
-                                        _divider(),
-                                        _divider(),
-                                        _divider(),
-                                        _divider(),
-                                        _divider(),
-                                        _divider(),
-                                        _divider(),
-                                        _divider(),
-                                      ],
-                                    )
+                                    _dividers(),
                                   ],
                                 ),
-                              )
+                              ),
+                              Container(
+                                width: 100 * pt,
+                                height: 54 * pt,
+                                padding: EdgeInsets.fromLTRB(
+                                  2 * pt,
+                                  3 * pt,
+                                  2 * pt,
+                                  4 * pt,
+                                ),
+                                child: Text(
+                                  "Слева направо: А.В. Артюшенков; С.Г. Горшков; Н.Н. Канаков; И.В. Ламарёв; профессор С.И. Квач – начальник экспедиции; Н.А. Лашков; П.Д. Воробьёв – фотограф; П.А. Велугин.\n\nМарт 1946 г.\n\nВскоре после съёмки Николай Канаков выбыл из отряда вследствие болезни. Его заменил Е.Р. Остроумов.",
+                                  style: GoogleFonts.getFont(
+                                    "PT Mono",
+                                    fontSize: f24,
+                                    height: 1.35,
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ],
@@ -276,6 +279,35 @@ class _divider extends StatelessWidget {
       indent: 2 * pt,
       endIndent: 2 * pt,
       color: Color(0x40663100),
+    );
+  }
+}
+
+class _dividers extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Divider(
+          height: 4 * pt,
+          thickness: pt / 4,
+          indent: 2 * pt,
+          endIndent: 2 * pt,
+          color: Colors.transparent,
+        ),
+        _divider(),
+        _divider(),
+        _divider(),
+        _divider(),
+        _divider(),
+        _divider(),
+        _divider(),
+        _divider(),
+        _divider(),
+        _divider(),
+        _divider(),
+        _divider(),
+      ],
     );
   }
 }
