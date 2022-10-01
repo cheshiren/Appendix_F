@@ -26,6 +26,7 @@ import 'src/level_selection/level_selection_screen.dart';
 import 'src/level_selection/levels.dart';
 import 'src/cover/front_cover_screen.dart';
 import 'src/photos/photo_1A_screen.dart';
+import 'src/photos/photo_2A_screen.dart';
 import 'src/play_session/play_session_screen.dart';
 import 'src/player_progress/persistence/local_storage_player_progress_persistence.dart';
 import 'src/player_progress/persistence/player_progress_persistence.dart';
@@ -130,8 +131,7 @@ class MyApp extends StatelessWidget {
       GoRoute(
           path: '/',
           builder: (context, state) =>
-              // const FrontCoverScreen(key: Key('front cover')),
-              const Photo1AScreen(key: Key('photo 1A')),
+              const FrontCoverScreen(key: Key('front cover')),
           routes: [
             GoRoute(
                 path: 'play',
@@ -176,6 +176,16 @@ class MyApp extends StatelessWidget {
               path: 'settings',
               builder: (context, state) =>
                   const SettingsScreen(key: Key('settings')),
+            ),
+            GoRoute(
+              path: 'photo_1A',
+              builder: (context, state) =>
+                  const Photo1AScreen(key: Key('photo_1A')),
+            ),
+            GoRoute(
+              path: 'photo_2A',
+              builder: (context, state) =>
+                  const Photo2AScreen(key: Key('photo_2A')),
             ),
           ]),
     ],

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'photo_screen_template.dart';
 
-class Photo1AScreen extends StatelessWidget {
-  const Photo1AScreen({super.key});
+class Photo2AScreen extends StatelessWidget {
+  const Photo2AScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return PhotoScreen(
-      fromRoute: '/',
-      toRoute: '/photo_2A',
-      photoLink: 'assets/images/photos/F1.png',
+      fromRoute: '/photo_1A',
+      toRoute: '/photo_3A',
+      photoLink: 'images/photos/F2.png',
       annotation:
           "Слева направо: А.В. Артюшенков; С.Г. Горшков; Н.Н. Канаков; И.В. Ламарёв; профессор С.И. Квач – начальник экспедиции; Н.А. Лашков; П.Д. Воробьёв – фотограф; П.А. Велугин.\n\nМарт 1946 г.\n\nВскоре после съёмки Николай Канаков выбыл из отряда вследствие болезни. Его заменил Е.Р. Остроумов.",
       description:

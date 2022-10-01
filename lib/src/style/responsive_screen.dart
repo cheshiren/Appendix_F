@@ -171,6 +171,7 @@ double pt = getSize(1); // size of local point (default is 8)
 double f96 = 12 * pt; // 96px
 double f48 = 6 * pt; //  48px
 double f40 = 5 * pt; //  40px
+double f32 = 4 * pt; //  32px
 double f24 = 3 * pt; //  24px
 double W = getSize(128);
 double H = getSize(170);
@@ -181,6 +182,7 @@ void calculateSizes() {
   f96 = 12 * pt; // 96px
   f48 = 6 * pt; //  48px
   f40 = 5 * pt; //  40px
+  f32 = 4 * pt; //  32px
   f24 = 3 * pt; //  24px
   W = getSize(128);
   H = getSize(170);
