@@ -25,8 +25,7 @@ import 'src/in_app_purchase/in_app_purchase.dart';
 import 'src/level_selection/level_selection_screen.dart';
 import 'src/level_selection/levels.dart';
 import 'src/cover/front_cover_screen.dart';
-import 'src/photos/photo_1A_screen.dart';
-import 'src/photos/photo_2A_screen.dart';
+import 'src/photos/photo_screens.dart';
 import 'src/play_session/play_session_screen.dart';
 import 'src/player_progress/persistence/local_storage_player_progress_persistence.dart';
 import 'src/player_progress/persistence/player_progress_persistence.dart';
@@ -129,65 +128,80 @@ class MyApp extends StatelessWidget {
   static final _router = GoRouter(
     routes: [
       GoRoute(
-          path: '/',
-          builder: (context, state) =>
-              const FrontCoverScreen(key: Key('front cover')),
-          routes: [
-            GoRoute(
-                path: 'play',
-                pageBuilder: (context, state) => buildMyTransition<void>(
-                      child: const LevelSelectionScreen(
-                          key: Key('level selection')),
-                      color: context.watch<Palette>().backgroundLevelSelection,
-                    ),
-                routes: [
-                  GoRoute(
-                    path: 'session/:level',
-                    pageBuilder: (context, state) {
-                      final levelNumber = int.parse(state.params['level']!);
-                      final level = gameLevels
-                          .singleWhere((e) => e.number == levelNumber);
-                      return buildMyTransition<void>(
-                        child: PlaySessionScreen(
-                          level,
-                          key: const Key('play session'),
-                        ),
-                        color: context.watch<Palette>().backgroundPlaySession,
-                      );
-                    },
-                  ),
-                  GoRoute(
-                    path: 'won',
-                    pageBuilder: (context, state) {
-                      final map = state.extra! as Map<String, dynamic>;
-                      final score = map['score'] as Score;
+        path: '/',
+        builder: (context, state) =>
+            const FrontCoverScreen(key: Key('front cover')),
+        // routes: [
+        //   GoRoute(
+        //       path: 'play',
+        //       pageBuilder: (context, state) => buildMyTransition<void>(
+        //             child:
+        //                 const LevelSelectionScreen(key: Key('level selection')),
+        //             color: context.watch<Palette>().backgroundLevelSelection,
+        //           ),
+        //       routes: [
+        //         GoRoute(
+        //           path: 'session/:level',
+        //           pageBuilder: (context, state) {
+        //             final levelNumber = int.parse(state.params['level']!);
+        //             final level =
+        //                 gameLevels.singleWhere((e) => e.number == levelNumber);
+        //             return buildMyTransition<void>(
+        //               child: PlaySessionScreen(
+        //                 level,
+        //                 key: const Key('play session'),
+        //               ),
+        //               color: context.watch<Palette>().backgroundPlaySession,
+        //             );
+        //           },
+        //         ),
+        //         GoRoute(
+        //           path: 'won',
+        //           pageBuilder: (context, state) {
+        //             final map = state.extra! as Map<String, dynamic>;
+        //             final score = map['score'] as Score;
 
-                      return buildMyTransition<void>(
-                        child: WinGameScreen(
-                          score: score,
-                          key: const Key('win game'),
-                        ),
-                        color: context.watch<Palette>().backgroundPlaySession,
-                      );
-                    },
-                  )
-                ]),
-            GoRoute(
-              path: 'settings',
-              builder: (context, state) =>
-                  const SettingsScreen(key: Key('settings')),
-            ),
-            GoRoute(
-              path: 'photo_1A',
-              builder: (context, state) =>
-                  const Photo1AScreen(key: Key('photo_1A')),
-            ),
-            GoRoute(
-              path: 'photo_2A',
-              builder: (context, state) =>
-                  const Photo2AScreen(key: Key('photo_2A')),
-            ),
-          ]),
+        //             return buildMyTransition<void>(
+        //               child: WinGameScreen(
+        //                 score: score,
+        //                 key: const Key('win game'),
+        //               ),
+        //               color: context.watch<Palette>().backgroundPlaySession,
+        //             );
+        //           },
+        //         )
+        //       ]),
+        //   GoRoute(
+        //     path: 'settings',
+        //     builder: (context, state) =>
+        //         const SettingsScreen(key: Key('settings')),
+        //   ),
+        //   GoRoute(
+        //     path: 'photo_1A',
+        //     // builder: (context, state) =>
+        //     // const Photo1AScreen(key: Key('photo_1A')),
+        //     pageBuilder: (context, state) => buildMyTransition<void>(
+        //       child: const Photo1AScreen(key: Key('photo_1A')),
+        //       color: context.watch<Palette>().backgroundLevelSelection,
+        //     ),
+        //   ),
+        //   GoRoute(
+        //     path: 'photo_2A',
+        //     builder: (context, state) =>
+        //         const Photo2AScreen(key: Key('photo_2A')),
+        //   ),
+        //   GoRoute(
+        //     path: 'photo_3A',
+        //     builder: (context, state) =>
+        //         const Photo3AScreen(key: Key('photo_3A')),
+        //   ),
+        //   GoRoute(
+        //     path: 'photo_4A',
+        //     builder: (context, state) =>
+        //         const Photo4AScreen(key: Key('photo_4A')),
+        //   ),
+        // ],
+      ),
     ],
   );
 
@@ -256,7 +270,7 @@ class MyApp extends StatelessWidget {
           final palette = context.watch<Palette>();
 
           return MaterialApp.router(
-            title: 'Flutter Demo',
+            title: 'Приложение Ф',
             theme: ThemeData.from(
               colorScheme: ColorScheme.fromSeed(
                 seedColor: palette.darkPen,

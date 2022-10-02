@@ -5,6 +5,7 @@
 // import 'dart:ui' as ui;
 import 'dart:math';
 
+import 'package:Appendix_F/src/photos/photo_screens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -54,7 +55,24 @@ class FrontCoverScreen extends StatelessWidget {
               child: GestureDetector(
                 onHorizontalDragUpdate: (details) {
                   if (details.delta.dx < 0) {
-                    GoRouter.of(context).go('/photo_1A');
+                    // GoRouter.of(context).go('/photo_1A');
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (BuildContext context, _, __) {
+                          return Photo1AScreen();
+                        }, transitionsBuilder: (___,
+                                Animation<double> animation,
+                                ____,
+                                Widget child) {
+                          return SlideTransition(
+                            position: Tween(
+                              begin: Offset(1, 0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: child,
+                          );
+                        }));
                   }
                 },
                 child: Container(

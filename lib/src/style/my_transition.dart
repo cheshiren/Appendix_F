@@ -27,7 +27,7 @@ CustomTransitionPage<T> buildMyTransition<T>({
     name: name,
     arguments: arguments,
     restorationId: restorationId,
-    transitionDuration: const Duration(milliseconds: 700),
+    transitionDuration: const Duration(milliseconds: 300),
   );
 }
 
@@ -53,7 +53,8 @@ class _MyRevealState extends State<_MyReveal> {
 
   bool _finished = false;
 
-  final _tween = Tween(begin: const Offset(0, -1), end: Offset.zero);
+  // final _tween = Tween(begin: const Offset(0, -1), end: Offset.zero);
+  final _tween = Tween(begin: const Offset(1, 0), end: Offset.zero);
 
   @override
   void initState() {
@@ -86,19 +87,20 @@ class _MyRevealState extends State<_MyReveal> {
           position: _tween.animate(
             CurvedAnimation(
               parent: widget.animation,
-              curve: Curves.easeOutCubic,
-              reverseCurve: Curves.easeOutCubic,
+              curve: Curves.ease,
+              reverseCurve: Curves.ease,
             ),
           ),
-          child: Container(
-            color: widget.color,
-          ),
-        ),
-        AnimatedOpacity(
-          opacity: _finished ? 1 : 0,
-          duration: const Duration(milliseconds: 300),
           child: widget.child,
+          // child: Container(
+          //   color: widget.color,
+          // ),
         ),
+        // AnimatedOpacity(
+        //   opacity: _finished ? 1 : 0,
+        //   duration: const Duration(milliseconds: 300),
+        //   child: widget.child,
+        // ),
       ],
     );
   }

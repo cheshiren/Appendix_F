@@ -19,18 +19,22 @@ import '../style/table_pattern.dart';
 class PhotoScreen extends StatefulWidget {
   const PhotoScreen({
     super.key,
-    required this.fromRoute,
-    required this.toRoute,
+    this.fromRoute,
+    this.toRoute,
     required this.photoLink,
     required this.annotation,
     required this.description,
+    required this.fromScreen,
+    required this.toScreen,
   });
 
-  final String fromRoute;
-  final String toRoute;
+  final String? fromRoute;
+  final String? toRoute;
   final String photoLink;
   final String annotation;
   final String description;
+  final Widget fromScreen;
+  final Widget toScreen;
 
   @override
   State<PhotoScreen> createState() => _PhotoScreenState();
@@ -64,6 +68,21 @@ class _PhotoScreenState extends State<PhotoScreen> {
       }
     }
 
+    // void _popping = Navigator.pop(
+    //     context,
+    //     PageRouteBuilder(pageBuilder: (BuildContext context, _, __) {
+    //       return widget;
+    //     }, transitionsBuilder:
+    //         (___, Animation<double> animation, ____, Widget child) {
+    //       return FadeTransition(
+    //         opacity: animation,
+    //         child: RotationTransition(
+    //           turns: Tween<double>(begin: 0.5, end: 1.0).animate(animation),
+    //           child: child,
+    //         ),
+    //       );
+    //     }));
+
     return Scaffold(
       backgroundColor: palette.tableColor,
       body: LayoutBuilder(
@@ -78,9 +97,49 @@ class _PhotoScreenState extends State<PhotoScreen> {
               child: GestureDetector(
                 onHorizontalDragUpdate: (details) {
                   if (details.delta.dx < 0) {
-                    GoRouter.of(context).go(widget.toRoute);
-                  } else {
-                    GoRouter.of(context).go(widget.fromRoute);
+                    // GoRouter.of(context).go(widget.toRoute);
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (BuildContext context, _, __) {
+                          return widget.toScreen;
+                        }, transitionsBuilder: (___,
+                                Animation<double> animation,
+                                ____,
+                                Widget child) {
+                          return SlideTransition(
+                            position: Tween(
+                              begin: Offset(1, 0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: child,
+                          );
+                        }));
+                  } else if (details.delta.dx > 0) {
+                    // GoRouter.of(context).go(widget.fromRoute);
+                    Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder: (BuildContext context, _, __) {
+                          return widget.fromScreen;
+                        }, transitionsBuilder: (___,
+                                Animation<double> animation,
+                                ____,
+                                Widget child) {
+                          // return FadeTransition(
+                          //   opacity: animation,
+                          //   child: RotationTransition(
+                          //     turns: Tween<double>(begin: 0.5, end: 1.0)
+                          //         .animate(animation),
+                          //     child: child,
+                          return SlideTransition(
+                            position: Tween(
+                              begin: Offset(-1, 0),
+                              end: Offset.zero,
+                            ).animate(animation),
+                            child: child,
+                          );
+                        }));
                   }
                 },
                 child: Container(
@@ -284,7 +343,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
                                     2 * pt,
                                     3 * pt,
                                     2 * pt,
-                                    4 * pt,
+                                    2 * pt,
                                   ),
                                   child: Text(
                                     widget.annotation,
