@@ -2,13 +2,16 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:html';
 import 'dart:ui';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 import '../audio/audio_controller.dart';
 import '../settings/settings.dart';
@@ -26,6 +29,11 @@ class PhotoScreen extends StatefulWidget {
     required this.description,
     required this.fromScreen,
     required this.toScreen,
+    this.label = "",
+    this.crossed = false,
+    this.svgString,
+    this.svgDim,
+    this.penText,
   });
 
   final String? fromRoute;
@@ -35,6 +43,11 @@ class PhotoScreen extends StatefulWidget {
   final String description;
   final Widget fromScreen;
   final Widget toScreen;
+  final String label;
+  final bool crossed;
+  final String? svgString;
+  final List<double>? svgDim;
+  final String? penText;
 
   @override
   State<PhotoScreen> createState() => _PhotoScreenState();
@@ -202,8 +215,8 @@ class _PhotoScreenState extends State<PhotoScreen> {
                           // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              width: 90 * pt,
-                              height: 90 * pt,
+                              width: 91 * pt,
+                              height: 91 * pt,
                               child: Stack(
                                 alignment: AlignmentDirectional.center,
                                 children: [
@@ -212,8 +225,30 @@ class _PhotoScreenState extends State<PhotoScreen> {
                                     height: 68 * pt,
                                     padding: EdgeInsets.all(pt * 2),
                                     alignment: AlignmentDirectional.center,
-                                    child: Image.asset(
-                                      widget.photoLink,
+                                    child: Stack(
+                                      alignment:
+                                          AlignmentDirectional.bottomStart,
+                                      children: [
+                                        Image.asset(
+                                          widget.photoLink,
+                                        ),
+                                        if (widget.label != "")
+                                          GradientText(
+                                            widget.label +
+                                                " ", // пробел, потому что без него какие-то артефакты на правой букве
+                                            style: GoogleFonts.getFont(
+                                              "Caveat",
+                                              fontSize: f48,
+                                            ),
+                                            gradientDirection:
+                                                GradientDirection.ttb,
+                                            colors: [
+                                              Color(0xFF130033),
+                                              Color(0xFF130033),
+                                              Color(0x40300478)
+                                            ],
+                                          )
+                                      ],
                                     ),
                                     decoration: BoxDecoration(
                                         color: Color(0xFFF8F8F8),
@@ -255,11 +290,11 @@ class _PhotoScreenState extends State<PhotoScreen> {
                                                   color: Color(0x44D9D9D9),
                                                   border: Border(
                                                     top: BorderSide(
-                                                        color: palette
-                                                            .oldPaperColor),
+                                                        color:
+                                                            Color(0xFFE2E2E2)),
                                                     left: BorderSide(
-                                                        color: palette
-                                                            .oldPaperColor),
+                                                        color:
+                                                            Color(0xFFE2E2E2)),
                                                   ),
                                                 ),
                                               ),
@@ -289,11 +324,11 @@ class _PhotoScreenState extends State<PhotoScreen> {
                                                   color: Color(0x44D9D9D9),
                                                   border: Border(
                                                     top: BorderSide(
-                                                        color: palette
-                                                            .oldPaperColor),
+                                                        color:
+                                                            Color(0xFFE2E2E2)),
                                                     left: BorderSide(
-                                                        color: palette
-                                                            .oldPaperColor),
+                                                        color:
+                                                            Color(0xFFE2E2E2)),
                                                   ),
                                                 ),
                                               ),
@@ -325,7 +360,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
                                     border: Border(
                                       top: BorderSide(
                                         color: Color(0xFFF8E9B9),
-                                        width: pt / 2,
+                                        width: pt / 4,
                                       ),
                                     ),
                                   ),
@@ -345,27 +380,42 @@ class _PhotoScreenState extends State<PhotoScreen> {
                                     2 * pt,
                                     2 * pt,
                                   ),
-                                  child: Text(
-                                    widget.annotation,
-                                    style: GoogleFonts.getFont(
-                                      "PT Mono",
-                                      fontSize: f24,
-                                      height: f32 / f24,
-                                      color: palette.inkColor,
-                                      // fontWeight: FontWeight.bold,
-                                      shadows: [
-                                        Shadow(
-                                          color: Color(0xFFF8E9B9),
-                                          offset: Offset(0, pt / 4),
-                                        ),
-                                      ],
-                                    ),
+                                  child: Stack(
+                                    children: [
+                                      Text(
+                                        widget.annotation,
+                                        style: _printedAnnotation(),
+                                      ),
+                                      if (widget.crossed)
+                                        Text(
+                                            "\n\n\n\n////////////////////////////////////////////////\n///////////////////////////",
+                                            style: _printedAnnotation())
+                                    ],
                                   ),
                                 ),
                               ],
                             ),
                           ],
                         ),
+                        if (widget.penText != null)
+                          Positioned(
+                            top: widget.svgDim![1] * pt,
+                            left: widget.svgDim![0] * pt,
+                            child: Column(
+                              children: [
+                                if (widget.svgString != null)
+                                  SvgPicture.string(
+                                    widget.svgString!,
+                                    width: widget.svgDim![2] * pt,
+                                    height: widget.svgDim![3] * pt,
+                                  ),
+                                Text(
+                                  widget.penText!,
+                                  style: _written(),
+                                ),
+                              ],
+                            ),
+                          ),
                         Stack(
                           alignment: AlignmentDirectional.topCenter,
                           children: [
@@ -485,4 +535,31 @@ class _dividers extends StatelessWidget {
       ],
     );
   }
+}
+
+TextStyle _printedAnnotation() {
+  final palette = new Palette();
+  return GoogleFonts.getFont(
+    "PT Mono",
+    fontSize: f24,
+    height: f32 / f24,
+    color: palette.inkColor,
+    // fontWeight: FontWeight.bold,
+    shadows: [
+      Shadow(
+        color: Color(0xFFF8E9B9),
+        offset: Offset(0, pt / 4),
+      ),
+    ],
+  );
+}
+
+TextStyle _written() {
+  final palette = new Palette();
+  return GoogleFonts.getFont(
+    "Bad Script",
+    fontSize: f24,
+    color: palette.penColor,
+    fontWeight: FontWeight.w700,
+  );
 }

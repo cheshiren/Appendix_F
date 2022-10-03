@@ -60,7 +60,7 @@ class FrontCoverScreen extends StatelessWidget {
                         context,
                         PageRouteBuilder(
                             pageBuilder: (BuildContext context, _, __) {
-                          return Photo1AScreen();
+                          return Photo5BScreen();
                         }, transitionsBuilder: (___,
                                 Animation<double> animation,
                                 ____,
