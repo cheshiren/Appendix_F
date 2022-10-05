@@ -5,7 +5,6 @@
 // import 'dart:ui' as ui;
 import 'dart:math';
 
-import 'package:Appendix_F/src/photos/photo_screens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -22,6 +21,7 @@ import '../style/palette.dart';
 import '../style/responsive_screen.dart';
 import '../style/table_pattern.dart';
 import '../style/typography.dart';
+import 'martyr_screen.dart';
 
 class FrontCoverScreen extends StatelessWidget {
   const FrontCoverScreen({super.key});
@@ -60,7 +60,7 @@ class FrontCoverScreen extends StatelessWidget {
                         context,
                         PageRouteBuilder(
                             pageBuilder: (BuildContext context, _, __) {
-                          return Photo5BScreen();
+                          return MartyrScreen();
                         }, transitionsBuilder: (___,
                                 Animation<double> animation,
                                 ____,
@@ -200,11 +200,7 @@ class FrontCoverScreen extends StatelessWidget {
                                 alignment: AlignmentDirectional.center,
                                 child: Text(
                                   "416-Д",
-                                  style: GoogleFonts.getFont(
-                                    "PT Mono",
-                                    fontSize: f24,
-                                    color: palette.inkColor,
-                                  ),
+                                  style: oldPrint(),
                                 ),
                               ),
                             ],
@@ -226,11 +222,7 @@ class FrontCoverScreen extends StatelessWidget {
                             alignment: AlignmentDirectional.center,
                             child: Text(
                               "Экспедиция в Такла-Макан".toUpperCase(),
-                              style: GoogleFonts.getFont(
-                                "PT Mono",
-                                fontSize: f24,
-                                color: palette.inkColor,
-                              ),
+                              style: oldPrint(),
                             ),
                           ),
                         ],

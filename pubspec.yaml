@@ -25,6 +25,7 @@ dependencies:
   flutter_svg: ^1.1.5
   patterns_canvas: ^0.4.0
   simple_gradient_text: ^1.2.4
+  dotted_border: ^2.0.0+2
 
   # If you don't need one of the following dependencies,
   # delete the relevant line below, and get rid of any Dart code
@@ -56,6 +57,9 @@ flutter:
     - family: Permanent Marker
       fonts:
         - asset: assets/Permanent_Marker/PermanentMarker-Regular.ttf
+    - family: Minecart LCD
+      fonts:
+        - asset: assets/fonts/Minecart_LCD/minecartlcd.ttf
 
 flutter_icons:
   android: true

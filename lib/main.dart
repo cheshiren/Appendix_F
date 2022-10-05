@@ -24,8 +24,13 @@ import 'src/games_services/score.dart';
 import 'src/in_app_purchase/in_app_purchase.dart';
 import 'src/level_selection/level_selection_screen.dart';
 import 'src/level_selection/levels.dart';
-import 'src/cover/front_cover_screen.dart';
-import 'src/photos/photo_screens.dart';
+import 'src/pages/appendix_screen.dart';
+import 'src/pages/front_cover_screen.dart';
+import 'src/pages/map_screen.dart';
+import 'src/pages/note_screen.dart';
+import 'src/pages/photo_screens.dart';
+import 'src/pages/vespers_note_screen.dart';
+import 'src/pages/yagoda_screen.dart';
 import 'src/play_session/play_session_screen.dart';
 import 'src/player_progress/persistence/local_storage_player_progress_persistence.dart';
 import 'src/player_progress/persistence/player_progress_persistence.dart';
@@ -130,7 +135,8 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/',
         builder: (context, state) =>
-            const FrontCoverScreen(key: Key('front cover')),
+            // const FrontCoverScreen(key: Key('front cover')),
+            const VespersNoteScreen(key: Key('front cover')),
         // routes: [
         //   GoRoute(
         //       path: 'play',

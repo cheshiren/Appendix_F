@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:inner_shadow_widget/inner_shadow_widget.dart';
 
+import 'responsive_screen.dart';
 import 'palette.dart';
 
 class CoverLettering extends StatelessWidget {
@@ -88,4 +89,24 @@ class CoverLettering extends StatelessWidget {
     // );
     return result;
   }
+}
+
+TextStyle written() {
+  final palette = new Palette();
+  return GoogleFonts.getFont(
+    "Bad Script",
+    fontSize: f24,
+    height: 6 * pt / f24,
+    color: palette.penColor,
+    fontWeight: FontWeight.w700,
+  );
+}
+
+TextStyle oldPrint() {
+  final palette = new Palette();
+  return GoogleFonts.getFont(
+    "PT Mono",
+    fontSize: f24,
+    color: palette.inkColor,
+  );
 }
