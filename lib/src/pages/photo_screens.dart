@@ -6,6 +6,7 @@ import '../style/responsive_screen.dart';
 import 'photo_screen_template.dart';
 import 'map_screen.dart';
 import 'vespers_note_screen.dart';
+import 'conclusion_screen.dart';
 
 class Photo1AScreen extends StatelessWidget {
   const Photo1AScreen({super.key});
@@ -295,7 +296,7 @@ class Photo8BScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PhotoScreen(
       fromScreen: Photo7BScreen(),
-      toScreen: Photo8BScreen(),
+      toScreen: ConclusionScreen(),
       photoLink: kReleaseMode
           ? 'assets/images/photos/F8B.png'
           : 'images/photos/F8B.png',

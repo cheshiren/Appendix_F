@@ -40,6 +40,7 @@ class Palette {
   Color get tableColor => Color(0xFF1b4d3f);
   Color get oldPaperColor => Color(0xFFE7DEC7);
   Color get newPaperColor => Color(0xFFE0E0E6);
+  Color get newestPaperColor => Color(0xFFF4F5FB);
   Color get penColor => Color(0xFF575C90);
   Color get inkColor => Color(0xFF473958);
 }

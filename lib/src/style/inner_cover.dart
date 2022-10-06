@@ -9,13 +9,13 @@ import '../style/responsive_screen.dart';
 class InnerCover extends StatelessWidget {
   const InnerCover({
     super.key,
-    required this.fromScreen,
-    required this.toScreen,
+    this.fromScreen,
+    this.toScreen,
     required this.child,
   });
 
-  final Widget fromScreen;
-  final Widget toScreen;
+  final Widget? fromScreen;
+  final Widget? toScreen;
   final Widget child;
 
   Widget build(BuildContext context) {
@@ -24,11 +24,11 @@ class InnerCover extends StatelessWidget {
     return Center(
       child: GestureDetector(
         onHorizontalDragUpdate: (details) {
-          if (details.delta.dx < 0) {
+          if (details.delta.dx < 0 && toScreen != null) {
             Navigator.push(
                 context,
                 PageRouteBuilder(pageBuilder: (BuildContext context, _, __) {
-                  return toScreen;
+                  return toScreen!;
                 }, transitionsBuilder:
                     (___, Animation<double> animation, ____, Widget child) {
                   return SlideTransition(
@@ -39,11 +39,11 @@ class InnerCover extends StatelessWidget {
                     child: child,
                   );
                 }));
-          } else if (details.delta.dx > 0) {
+          } else if (details.delta.dx > 0 && fromScreen != null) {
             Navigator.push(
                 context,
                 PageRouteBuilder(pageBuilder: (BuildContext context, _, __) {
-                  return fromScreen;
+                  return fromScreen!;
                 }, transitionsBuilder:
                     (___, Animation<double> animation, ____, Widget child) {
                   return SlideTransition(
