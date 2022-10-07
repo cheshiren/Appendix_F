@@ -4,8 +4,8 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "version.json": "a33a8e54f68365f793636d56b9bb5eb2",
-"index.html": "5dad660201f0476c1d55b72e1d6d5c9d",
-"/": "5dad660201f0476c1d55b72e1d6d5c9d",
+"index.html": "61cdee5e8698b70ce242b520b2873ae2",
+"/": "61cdee5e8698b70ce242b520b2873ae2",
 "main.dart.js": "e730d3496e926240d3e8fc5f1bd1ec0d",
 "flutter.js": "f85e6fb278b0fd20c349186fb46ae36d",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
@@ -24,7 +24,6 @@ const RESOURCES = {
 "assets/assets/music/README.md": "035041cfb2070f794172dedb2aa709b6",
 "assets/assets/music/Mr_Smith-Sonorus.mp3": "9353b7bb732002062e2c9107a95f3d2a",
 "assets/assets/music/Mr_Smith-Azul.mp3": "9463595498dc48b3d3d6805fb7c19dc7",
-"assets/assets/Permanent_Marker/PermanentMarker-Regular.ttf": "c863f8028c2505f92540e0ba7c379002",
 "assets/assets/images/3x/settings.png": "21ff2cc135a762f74ed1a80aac6502bb",
 "assets/assets/images/3x/restart.png": "429270ce832c881b80fbd592e5ff1e0e",
 "assets/assets/images/3x/back.png": "88a977a654df5a490037340f90a5a19e",
