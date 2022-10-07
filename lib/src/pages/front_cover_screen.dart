@@ -249,8 +249,8 @@ class FrontCoverScreen extends StatelessWidget {
                             alignment: AlignmentDirectional.center,
                             child: Text(
                               "Арх.№ О-6-09212".toUpperCase(),
-                              style: GoogleFonts.getFont(
-                                "Caveat",
+                              style: TextStyle(
+                                fontFamily: "Caveat",
                                 fontSize: f40,
                                 color: palette.penColor,
                               ),

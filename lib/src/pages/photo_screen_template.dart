@@ -167,8 +167,8 @@ class _PhotoScreenState extends State<PhotoScreen> {
                                       GradientText(
                                         widget.label +
                                             " ", // пробел, потому что без него какие-то артефакты на правой букве
-                                        style: GoogleFonts.getFont(
-                                          "Caveat",
+                                        style: TextStyle(
+                                          fontFamily: "Caveat",
                                           fontSize: f48,
                                         ),
                                         gradientDirection:
@@ -378,8 +378,8 @@ class _PhotoScreenState extends State<PhotoScreen> {
                                           ),
                                           child: Text(
                                             widget.description,
-                                            style: GoogleFonts.getFont(
-                                              "PT Sans",
+                                            style: TextStyle(
+                                              fontFamily: "PT Sans",
                                               fontSize: f32,
                                               height: f40 / f32,
                                               color: Color(0xFFEEEEEE),
@@ -461,8 +461,8 @@ class _dividers extends StatelessWidget {
 
 TextStyle _printedAnnotation() {
   final palette = new Palette();
-  return GoogleFonts.getFont(
-    "PT Mono",
+  return TextStyle(
+    fontFamily: "PT Mono",
     fontSize: f24,
     height: f32 / f24,
     color: palette.inkColor,

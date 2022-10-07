@@ -91,8 +91,8 @@ class _MartyrScreenState extends State<MartyrScreen> {
                           "внимание\n\nдля работы с материалами необходим допуск не ниже класса мартир\n\nперед прочтением подготовить\nформуляр 09–В–2"
                               .toUpperCase(),
                           textAlign: TextAlign.center,
-                          style: GoogleFonts.getFont(
-                            "Rubik",
+                          style: TextStyle(
+                            fontFamily: "Rubik",
                             color: Color(0xFF8E1C1A),
                             fontSize: f48,
                             height: f48 / f32,

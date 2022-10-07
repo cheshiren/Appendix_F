@@ -1,5 +1,7 @@
 // import 'dart:ui' as ui;
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,8 +44,8 @@ class CoverLettering extends StatelessWidget {
         child: Text(
           text,
           // textAlign: textAlign,
-          style: GoogleFonts.getFont(
-            font,
+          style: TextStyle(
+            fontFamily: font,
             fontSize: fontSize,
             letterSpacing: fontSize / 100 * letterSpacing,
             color: palette.goldenLettersColor,
@@ -59,7 +61,7 @@ class CoverLettering extends StatelessWidget {
     //       child: Text(
     //         text,
     //         textAlign: TextAlign.center,
-    //         style: GoogleFonts.getFont(
+    //         style: TextStyle(
     //           font,
     //           fontSize: fontSize,
     //           letterSpacing: fontSize / 100 * letterSpacing,
@@ -76,7 +78,7 @@ class CoverLettering extends StatelessWidget {
     //         child: Text(
     //           text,
     //           textAlign: TextAlign.center,
-    //           style: GoogleFonts.getFont(
+    //           style: TextStyle(
     //             font,
     //             fontSize: fontSize,
     //             letterSpacing: fontSize / 100 * letterSpacing,
@@ -93,8 +95,8 @@ class CoverLettering extends StatelessWidget {
 
 TextStyle written() {
   final palette = new Palette();
-  return GoogleFonts.getFont(
-    "Bad Script",
+  return TextStyle(
+    fontFamily: "Bad Script",
     fontSize: f24,
     height: 6 * pt / f24,
     color: palette.penColor,
@@ -104,9 +106,19 @@ TextStyle written() {
 
 TextStyle oldPrint() {
   final palette = new Palette();
-  return GoogleFonts.getFont(
-    "PT Mono",
+  return TextStyle(
+    fontFamily: "PT Mono",
     fontSize: f24,
     color: palette.inkColor,
   );
+}
+
+TextStyle newStyle() {
+  final palette = new Palette();
+  return TextStyle(
+      fontFamily: "PT Sans",
+      color: Color(0xBD000000),
+      fontSize: f24,
+      height: f32 / f24,
+      fontFeatures: [FontFeature.enable("lnum")]);
 }

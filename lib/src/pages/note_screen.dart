@@ -152,8 +152,8 @@ class _NoteScreenState extends State<NoteScreen> {
 
 TextStyle _notePrint() {
   // final palette = new Palette();
-  return GoogleFonts.getFont(
-    "Anonymous Pro",
+  return TextStyle(
+    fontFamily: "Anonymous Pro",
     color: Colors.black87,
     fontSize: f24,
     height: f32 / f24,

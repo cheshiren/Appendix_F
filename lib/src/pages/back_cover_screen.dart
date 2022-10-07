@@ -1,8 +1,8 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,8 +12,6 @@ import '../style/responsive_screen.dart';
 import '../style/table_pattern.dart';
 import '../style/inner_cover.dart';
 import 'conclusion_screen.dart';
-import 'photo_screens.dart';
-import 'note_screen.dart';
 
 class BackCoverScreen extends StatefulWidget {
   const BackCoverScreen({super.key});
@@ -28,9 +26,14 @@ class _BackCoverScreenState extends State<BackCoverScreen> {
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
+    final String svgString =
+        '''<svg width="456" height="757" viewBox="0 0 456 757" fill="none">
+<path d="M29.9998 342.5C23.601 287.77 11 94 7 2.99998L7 745.5C12.5 625 22.0745 384.438 29.9998 342.5ZM29.9998 342.5C159.35 334.062 382.593 330.094 429.5 338.5M29.9998 342.5C137.655 343.457 388.668 332.171 449 363.5" stroke="#C0BBB3" stroke-width="6" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"  shape-rendering="crispEdges"/></svg>''';
+
     final String imageLink = kReleaseMode
         ? 'assets/images/Emblema_FSB.png'
         : 'images/Emblema_FSB.png';
+
     void _showDesc() {
       if (!_descVisible) {
         setState(() {
@@ -54,109 +57,157 @@ class _BackCoverScreenState extends State<BackCoverScreen> {
       body: LayoutBuilder(
         builder: (context, constraints) {
           calculateSizes();
-          final double _W = getSize(116);
-          final double _H = getSize(158);
+          final double _W = getSize(64);
+          final double _H = getSize(34);
 
           return CustomPaint(
             painter: TablePattern(),
             child: InnerCover(
               fromScreen: ConclusionScreen(),
-              child: Padding(
-                padding: EdgeInsets.all((H - _H) / 2),
-                child: Stack(
-                  alignment: AlignmentDirectional.topCenter,
-                  children: [
-                    Container(
+              child: Stack(
+                alignment: AlignmentDirectional.centerStart,
+                children: [
+                  Positioned(
+                    top: (H - 115 * pt) / 2,
+                    left: 5 * pt,
+                    child: SvgPicture.string(
+                      svgString,
+                      height: 120 * pt,
+                    ),
+                  ),
+                  Positioned(
+                    top: 39.5 * pt,
+                    left: 33.5 * pt,
+                    child: Transform.rotate(
+                      angle: -pi / 2,
+                      child: Image.asset(
+                        imageLink,
+                        width: 28 * pt,
+                        color: Color(0xCC6C1616),
+                      ),
+                    ),
+                  ),
+                  Transform.rotate(
+                    angle: -pi / 2,
+                    child: Container(
                       height: _H,
                       width: _W,
                       decoration: BoxDecoration(
-                        // color: palette.oldPaperColor,
+                        color: palette.newestPaperColor,
+                        gradient: LinearGradient(
+                          begin: Alignment.centerRight,
+                          end: Alignment.centerLeft,
+                          colors: [
+                            palette.newestPaperColor,
+                            palette.newestPaperColor,
+                            Color(0xFFFFFFFF),
+                            Color(0xFFD0D3F1),
+                            palette.newestPaperColor,
+                            palette.newestPaperColor,
+                          ],
+                          transform: GradientRotation(pi / 180 * -1),
+                          stops: [0, 0.4, 0.43, 0.46, 0.49, 1],
+                        ),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black26,
-                            offset: Offset.fromDirection(pi / 2, pt / 2),
-                            spreadRadius: pt / 2,
-                            blurRadius: pt / 2,
-                          ),
-                          BoxShadow(
-                            color: Color.alphaBlend(
-                                Colors.black26, palette.newestPaperColor),
-                          ),
-                          BoxShadow(
-                            color: palette.newestPaperColor,
-                            offset: Offset.zero,
-                            blurRadius: 12 * pt,
-                            blurStyle: BlurStyle.inner,
+                            offset: Offset(-pt / 4, 0),
+                            // spreadRadius: pt / 2,
+                            blurRadius: pt / 8,
                           ),
                         ],
                       ),
-                      child: Padding(
-                        padding: EdgeInsets.all(6 * pt),
-                        child: Column(
-                          children: [
-                            Text(
-                              "Заключение по результатам гермоконтроля",
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.getFont(
-                                "PT Sans",
-                                color: Color(0xBD000000),
-                                fontSize: f24,
-                                height: f32 / f24,
-                                fontWeight: FontWeight.bold,
-                              ),
+                      child: Stack(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 2 * pt,
+                              horizontal: 4 * pt,
                             ),
-                            SizedBox(height: 3 * pt),
-                            Text(
-                              "Крайняя фотография и аннотация к ней свидетельствуют о значительном влиянии «поля КФ», тензодатчики Энджелла регистрируют напряжение на уровне 108,6 МПа. Работа с документом возможна только при наличии барьеров уровня не ниже мартировского.\n\nОчевидно, техники подобного уровня не существовало на момент написания аннотаций (конец сороковых — начало пятидесятых). Как следствие, личность человека, аннотировавшего фотографии, наверняка, понесла необратимый урон.\n\nДо сих пор не удалось со стопроцентной достоверностью определить автора аннотаций.\n\nОднако, большая часть данных указывает на то, что им был Канаков Николай Наумович — тот самый член отряда, который выбыл из экспедиции ещё до её начала.\n\nКанаков Н.Н. умер в 1959 году в Московской психиатрической больнице №3. Кремирован на Новом Донском кладбище.",
-                              style: GoogleFonts.getFont(
-                                "PT Sans",
-                                color: Color(0xBD000000),
-                                fontSize: f24,
-                                height: f32 / f24,
-                              ),
-                            ),
-                            SizedBox(height: 16 * pt),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            child: Stack(
                               children: [
-                                Text(
-                                  "Класс опасности материалов подтверждаю.\nУсловия хранения оставить без изменений.\nСледующий контроль не позднее 2015 года.\n\nСт. л—т Ю. Д. Веспер\n15 марта 2007 года.",
-                                  style: GoogleFonts.getFont(
-                                    "PT Sans",
-                                    color: Color(0xBD000000),
-                                    fontSize: f24,
-                                    height: f32 / f24,
-                                  ),
+                                Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Всего прошито, пронумеровано и скреплено печатью",
+                                      style: newStyle(),
+                                    ),
+                                    Text(
+                                      "_________( ______________________ ) лист(а/ов)",
+                                      style: newStyle(),
+                                    ),
+                                    Text(
+                                      "Должность ________________________________",
+                                      style: newStyle(),
+                                    ),
+                                    Text(
+                                      "Подпись  __________________________________",
+                                      style: newStyle(),
+                                    ),
+                                    Text(
+                                      "« ______ » ___________________ 20 ______ г.",
+                                      style: newStyle(),
+                                    ),
+                                  ],
                                 ),
-                                Transform.rotate(
-                                  angle: pi / 180 * 4,
-                                  child: Image.asset(
-                                    imageLink,
-                                    width: 28 * pt,
-                                  ),
-                                ),
-                                SizedBox(width: pt),
+                                Positioned(
+                                    top: 9 * pt,
+                                    left: 4 * pt,
+                                    child: Text("23", style: written())),
+                                Positioned(
+                                    top: 9 * pt,
+                                    left: 20 * pt,
+                                    child:
+                                        Text("двадцать три", style: written())),
+                                Positioned(
+                                    top: 14 * pt,
+                                    left: 24 * pt,
+                                    child: Text("Старший лейтенант",
+                                        style: written())),
+                                Positioned(
+                                    top: 18 * pt,
+                                    left: 30 * pt,
+                                    child: Text(
+                                      "Vesper",
+                                      style: TextStyle(
+                                        fontFamily: "Oooh Baby",
+                                        color: palette.penColor,
+                                        fontSize: f48,
+                                        // height: f32 / f24,
+                                      ),
+                                    )),
+                                Positioned(
+                                    top: 24 * pt,
+                                    left: 4 * pt,
+                                    child: Text("16", style: written())),
+                                Positioned(
+                                    top: 24 * pt,
+                                    left: 20 * pt,
+                                    child: Text("марта", style: written())),
+                                Positioned(
+                                    top: 24 * pt,
+                                    left: 42 * pt,
+                                    child: Text("07", style: written())),
                               ],
                             ),
-                            SizedBox(height: 4 * pt),
-                            Container(
-                              alignment: AlignmentDirectional.centerStart,
-                              child: Text(
-                                "Vesper",
-                                style: GoogleFonts.getFont(
-                                  "Oooh Baby",
-                                  color: palette.penColor,
-                                  fontSize: f72,
-                                  height: f72 / f48,
-                                ),
-                              ),
+                          ),
+                          Positioned(
+                            top: 18 * pt,
+                            left: 50 * pt,
+                            child: Image.asset(
+                              imageLink,
+                              width: 28 * pt,
+                              color: Color(0xCC8e2121),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           );

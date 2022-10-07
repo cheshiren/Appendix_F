@@ -54,12 +54,37 @@ flutter:
     - assets/sfx/
 
   fonts:
-    - family: Permanent Marker
+    - family: Anonymous Pro
       fonts:
-        - asset: assets/Permanent_Marker/PermanentMarker-Regular.ttf
+        - asset: assets/fonts/Anonymous_Pro/AnonymousPro-Regular.ttf
+    - family: Bad Script
+      fonts:
+        - asset: assets/fonts/Bad_script/BadScript-Regular.ttf
+    - family: Caveat
+      fonts:
+        - asset: assets/fonts/Caveat/Caveat-Regular.ttf
     - family: Minecart LCD
       fonts:
         - asset: assets/fonts/Minecart_LCD/minecartlcd.ttf
+    - family: Oooh Baby
+      fonts:
+        - asset: assets/fonts/Oooh_Baby/OoohBaby-Regular.ttf
+    - family: Orelega One
+      fonts:
+        - asset: assets/fonts/Orelega_One/OrelegaOne-Regular.ttf
+    - family: Oswald
+      fonts:
+        - asset: assets/fonts/Oswald/Oswald-Regular.ttf
+    - family: PT Mono
+      fonts:
+        - asset: assets/fonts/PT_Mono/PTMono-Regular.ttf
+    - family: PT Sans
+      fonts:
+        - asset: assets/fonts/PT_Sans/PTSans-Bold.ttf
+        - asset: assets/fonts/PT_Sans/PTSans-Regular.ttf
+    - family: Rubik
+      fonts:
+        - asset: assets/fonts/Rubik/Rubik-Black.ttf
 
 flutter_icons:
   android: true

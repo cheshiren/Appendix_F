@@ -25,6 +25,7 @@ import 'src/in_app_purchase/in_app_purchase.dart';
 import 'src/level_selection/level_selection_screen.dart';
 import 'src/level_selection/levels.dart';
 import 'src/pages/appendix_screen.dart';
+import 'src/pages/back_cover_screen.dart';
 import 'src/pages/conclusion_screen.dart';
 import 'src/pages/front_cover_screen.dart';
 import 'src/pages/map_screen.dart';
@@ -136,8 +137,8 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/',
         builder: (context, state) =>
-            // const FrontCoverScreen(key: Key('front cover')),
-            const ConclusionScreen(key: Key('front cover')),
+            const FrontCoverScreen(key: Key('front cover')),
+        // const BackCoverScreen(key: Key('front cover')),
         // routes: [
         //   GoRoute(
         //       path: 'play',
