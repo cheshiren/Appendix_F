@@ -2,7 +2,7 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-import 'dart:html';
+// import 'dart:html';
 import 'dart:ui';
 import 'dart:math';
 
@@ -12,6 +12,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:sized_context/sized_context.dart';
 
 import '../audio/audio_controller.dart';
 import '../settings/settings.dart';
@@ -26,7 +27,7 @@ class PhotoScreen extends StatefulWidget {
     super.key,
     this.fromRoute,
     this.toRoute,
-    required this.photoLink,
+    required this.photo,
     required this.annotation,
     required this.description,
     required this.fromScreen,
@@ -40,7 +41,7 @@ class PhotoScreen extends StatefulWidget {
 
   final String? fromRoute;
   final String? toRoute;
-  final String photoLink;
+  final Image photo;
   final String annotation;
   final String description;
   final Widget fromScreen;
@@ -62,7 +63,8 @@ class _PhotoScreenState extends State<PhotoScreen> {
     final palette = context.watch<Palette>();
     final settingsController = context.watch<SettingsController>();
     final audioController = context.watch<AudioController>();
-
+    Size physSize = context.sizeInches;
+    double physDiagonal = context.diagonalInches;
     // audioController.stopMusic();
 
     void _showDesc() {
@@ -102,7 +104,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
       backgroundColor: palette.tableColor,
       body: LayoutBuilder(
         builder: (context, constraints) {
-          calculateSizes();
+          calculateSizes(physSize, physDiagonal);
           final double _W = getSize(116);
           final double _H = getSize(158);
 
@@ -160,9 +162,8 @@ class _PhotoScreenState extends State<PhotoScreen> {
                                 child: Stack(
                                   alignment: AlignmentDirectional.bottomStart,
                                   children: [
-                                    Image.asset(
-                                      widget.photoLink,
-                                    ),
+                                    // Image(image: AssetImage(widget.photoLink)),
+                                    Image(image: widget.photo.image),
                                     if (widget.label != "")
                                       GradientText(
                                         widget.label +
@@ -370,7 +371,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
                                         decoration: BoxDecoration(
                                             color: Color(0xE61E1E1E),
                                             borderRadius:
-                                                BorderRadius.circular(20)),
+                                                BorderRadius.circular(2 * pt)),
                                         child: Padding(
                                           padding: EdgeInsets.symmetric(
                                             vertical: 6 * pt,

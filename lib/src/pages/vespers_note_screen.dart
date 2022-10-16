@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sized_context/sized_context.dart';
 
 import '../style/palette.dart';
 import '../style/typography.dart';
@@ -25,6 +26,8 @@ class _VespersNoteScreenState extends State<VespersNoteScreen> {
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
+    Size physSize = context.sizeInches;
+    double physDiagonal = context.diagonalInches;
     final String svgString =
         '''<svg width="262" height="69" viewBox="0 0 262 69" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 6.01175C30.3798 1.99054 249.195 -2.8983 260 6.01182C270.805 14.9219 39.1321 15.6949 23 25.0118C6.86788 34.3288 231.928 24.3348 247.5 34.0118C263.072 43.6887 41.5 28.7281 172 67.0674" stroke="#000000" stroke-width="2"/></svg>''';
@@ -51,7 +54,7 @@ class _VespersNoteScreenState extends State<VespersNoteScreen> {
       backgroundColor: palette.tableColor,
       body: LayoutBuilder(
         builder: (context, constraints) {
-          calculateSizes();
+          calculateSizes(physSize, physDiagonal);
           final double _W = getSize(100);
           final double _H = getSize(123);
 

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../resources/resources.dart';
 import '../style/responsive_screen.dart';
 import 'photo_screen_template.dart';
 import 'map_screen.dart';
@@ -15,8 +16,7 @@ class Photo1AScreen extends StatelessWidget {
     return PhotoScreen(
       fromScreen: MapScreen(),
       toScreen: Photo2AScreen(),
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F1.png' : 'images/photos/F1.png',
+      photo: photo1A,
       annotation:
           "Слева направо: А.В. Артюшенков; С.Г. Горшков; Н.Н. Канаков; И.В. Ламарёв; профессор С.И. Квач – начальник экспедиции; Н.А. Лашков; П.Д. Воробьёв – фотограф; П.А. Велугин.\n\nМарт 1946 г.\n\nВскоре после съёмки Николай Канаков выбыл из отряда вследствие болезни. Его заменил Е.Р. Остроумов.",
       description:
@@ -34,8 +34,7 @@ class Photo2AScreen extends StatelessWidget {
       toScreen: Photo3AScreen(),
       // fromRoute: '/photo_1A',
       // toRoute: '/photo_3A',
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F2.png' : 'images/photos/F2.png',
+      photo: photo2A,
       annotation:
           "На нужды экспедиции Оргсоветом Наркомпроса были выписаны два грузовика повышенной проходимости и три мотоцикла.\n\nОднако, первоначальные машины были совершенно негодного состояния и С.И. Квач в течение двух месяцев изыскивал технику необходимого качества.\n\nНужные машины в результате были найдены и переданы Санитарным Управлением Наркомата Обороны в ведение университета. Ещё два месяца ушло на подготовку транспорта к условиям длительного перехода.",
       description:
@@ -53,8 +52,7 @@ class Photo3AScreen extends StatelessWidget {
       toScreen: Photo4AScreen(),
       // fromRoute: '/photo_2A',
       // toRoute: '/photo_4A',
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F3.png' : 'images/photos/F3.png',
+      photo: photo3A,
       annotation:
           "Первая часть маршрута проходила по железным дорогам и была самой простой и безопасной. Возникавшие сложности были связаны, в основном, со скудным уходом за состоянием путей – все силы были брошены на восстановление ж/д-сетей в западных частях страны – и с недавней масштабной реорганизацией Наркомата путей сообщения в Министерство путей сообщения.\n\nВпрочем, все проблемы относительно быстро решались.\n\nФото предположительно снято в октябре 1946-го на участке между Астраханью и Гурьевым.",
       description:
@@ -72,8 +70,7 @@ class Photo4AScreen extends StatelessWidget {
       toScreen: Photo5AScreen(),
       // fromRoute: '/photo_3A',
       // toRoute: '/photo_5A',
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F4.png' : 'images/photos/F4.png',
+      photo: photo4A,
       annotation:
           "Со столицы Туркестана началась «настоящая» экспедиция. Начались и первые проблемы – местное топливо оказалось скверного качества и первоначальный план по постепенному замещению бензина в запасных цистернах пришлось корректировать – качественное топливо из запасов экономили на обратный путь, а передвигаться приходилось на местных розливах. Учащались поломки и беспокоил моторесурс техники, которая ещё даже не столкнулась с испытаниями перевалами и пустыней.",
       description:
@@ -92,8 +89,7 @@ class Photo5AScreen extends StatelessWidget {
       toScreen: Photo6AScreen(),
       // fromRoute: '/photo_3A',
       // toRoute: '/photo_5A',
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F5.png' : 'images/photos/F5.png',
+      photo: photo5A,
       annotation:
           "Нет никаких фотоматериалов с длительного участка пути между Самаркандом и Кашгаром. Причина, скорее всего, была озвучена профессором Квачем в телеграмме, отправленной из города Ош – последнем пункте с телеграфом. В ней упоминается, что фотограф отряда, Павел Воробьёв, болен, но без подробностей. Кроме того, Квач сетовал, что техника начинает сдавать, а впереди ещё путь через Памир и горные перевалы.\n\nВпрочем, до Кашгара группа добралась и готовилась к походу в пустыню.",
       description:
@@ -112,8 +108,7 @@ class Photo6AScreen extends StatelessWidget {
       toScreen: Photo7AScreen(),
       // fromRoute: '/photo_5A',
       // toRoute: '/photo_7A',
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F6.png' : 'images/photos/F6.png',
+      photo: photo6A,
       annotation:
           "Большую часть пути по пустыне отряд проделывал ночью, сберегая технику от работы при высоких температурах. Естественные сложности возникали при ориентировании: скудные картографические данные района, путанные материалы из первоисточников, проблемы с компасами из-за повсеместных магнитных аномалий, необходимость ориентироваться по звёздам. Всё приводило к дополнительным временным затратам.\n\nТак же наметились первые признаки разлада в коллективе.",
       description:
@@ -131,8 +126,7 @@ class Photo7AScreen extends StatelessWidget {
       toScreen: Photo8AScreen(),
       // fromRoute: '/photo_6A',
       // toRoute: '/photo_8A',
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F7.png' : 'images/photos/F7.png',
+      photo: photo7A,
       annotation:
           "Эффект зиккурата, описанный в материалах немецких археологов, отчётливо проявляется и на данной фотографии: явное чувство тревоги, опасности, исходящей от древнего сооружения. И при этом неуютная притягательность, гипнотическое желание приблизиться.\n\nСкорее всего, участники экспедиции в момент съёмок испытывали похожее чувство, только многажды сильнее.",
       description:
@@ -150,9 +144,7 @@ class Photo8AScreen extends StatelessWidget {
       toScreen: VespersNoteScreen(),
       // fromRoute: '/photo_7A',
       // toRoute: '/vespers_note',
-      photoLink: kReleaseMode
-          ? 'assets/images/photos/F8A.png'
-          : 'images/photos/F8A.png',
+      photo: photo8A,
       annotation:
           "\n\n\n\nодни мы над миром владыки, нам зверь подчиняется дикий и травы зелёных полей",
       description:
@@ -169,8 +161,7 @@ class Photo1BScreen extends StatelessWidget {
     return PhotoScreen(
       fromScreen: VespersNoteScreen(),
       toScreen: Photo2BScreen(),
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F1.png' : 'images/photos/F1.png',
+      photo: photo1A,
       annotation:
           "Единственный человек на фото, чьё лицо можно разглядеть, — это Николай Канаков, который не смог участвовать из-за болезни. Остальные — невернувшиеся участники экспедиции.\n\nТак же эффект зиккурата.",
       description:
@@ -186,8 +177,7 @@ class Photo2BScreen extends StatelessWidget {
     return PhotoScreen(
       fromScreen: Photo1BScreen(),
       toScreen: Photo3BScreen(),
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F2.png' : 'images/photos/F2.png',
+      photo: photo2A,
       annotation:
           "Переданные Наркоматом Обороны машины были, в целом, исправны. Но будучи техникой Санитарного Управления, несли на себе явственную печать страданий и смерти.\n\nКто-то из участников, бывших фронтовиков, спорил, что эту технику нельзя использовать в таком сложном деле – плохая примета.\n\nСергей Иванович Квач, будучи учёным, не верил в приметы и отмахнулся от суеверий коллег.",
       description:
@@ -203,8 +193,7 @@ class Photo3BScreen extends StatelessWidget {
     return PhotoScreen(
       fromScreen: Photo2BScreen(),
       toScreen: Photo4BScreen(),
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F3.png' : 'images/photos/F3.png',
+      photo: photo3A,
       annotation:
           "Пленные гитлеровцы были все сплошь краснолицыми от длительного обращения с креозотом под астраханским солнцем. С сопутствующей светобоязнью боролись, как наши северные народности со снежной слепотой – мастерили очки-пластинки с узкой прорезью для глаз.",
       description:
@@ -220,8 +209,7 @@ class Photo4BScreen extends StatelessWidget {
     return PhotoScreen(
       fromScreen: Photo3BScreen(),
       toScreen: Photo5BScreen(),
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F4.png' : 'images/photos/F4.png',
+      photo: photo4A,
       annotation:
           "Древний город, одна из ключевых остановок на Шёлковом пути, столица империи Тамерлана, культурный и научный центр. А что теперь? Пыль да разруха.",
       description:
@@ -240,8 +228,7 @@ class Photo5BScreen extends StatelessWidget {
     return PhotoScreen(
       fromScreen: Photo4BScreen(),
       toScreen: Photo6BScreen(),
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F5.png' : 'images/photos/F5.png',
+      photo: photo5A,
       annotation:
           "По прибытии в Кашгар группа планировала задержаться на несколько дней, чтобы отдохнуть, восстановить технику и найти проводников. Однако, население уже знало о прибытии русских и было настроено крайне враждебно. В стычке с местными был ранен Иван Ламарёв.\n\nОтряду пришлось спешно выходить в пустыню без отдыха и проводников.",
       description:
@@ -261,8 +248,7 @@ class Photo6BScreen extends StatelessWidget {
     return PhotoScreen(
       fromScreen: Photo5BScreen(),
       toScreen: Photo7BScreen(),
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F6.png' : 'images/photos/F6.png',
+      photo: photo6A,
       annotation:
           "К этому времени коллектив разделился на две группы: Воробьёв, Артюшенков и Ламарёв продолжали подчиняться профессору Квачу, а Велугин, Горшков, Лашков и Остроумов, под предводительством последнего, начали оспаривать авторитет руководителя экспедиции. Шли разговоры об отделении, захвате части техники и возвращении в Кашгар. Лишь сложности с ориентированием (читать звёзды умел только фронтовик Артюшенков) останавливали бунтовщиков от осуществления задуманного.\n\nОтряд шёл к намеченной цели.",
       description:
@@ -278,8 +264,7 @@ class Photo7BScreen extends StatelessWidget {
     return PhotoScreen(
       fromScreen: Photo6BScreen(),
       toScreen: Photo8BScreen(),
-      photoLink:
-          kReleaseMode ? 'assets/images/photos/F7.png' : 'images/photos/F7.png',
+      photo: photo7A,
       annotation:
           "если на фотографии только зиккурат, где люди и техника? кто снимает? воробьёв? один? гдгд? квч!",
       description:
@@ -297,9 +282,7 @@ class Photo8BScreen extends StatelessWidget {
     return PhotoScreen(
       fromScreen: Photo7BScreen(),
       toScreen: ConclusionScreen(),
-      photoLink: kReleaseMode
-          ? 'assets/images/photos/F8B.png'
-          : 'images/photos/F8B.png',
+      photo: photo8B,
       annotation:
           "Фахфф ахф’ мгеп мгмгехйенах бтнк от йар ахор ах л’ мгептаранк сиха’х ах’мглв’нафх! Сиха’х ах’мглв’нафх!",
       description:

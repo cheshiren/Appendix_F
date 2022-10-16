@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:sized_context/sized_context.dart';
 
 /// A widget that makes it easy to create a screen with a square-ish
 /// main area, a smaller menu area, and a small area for a message on top.
@@ -124,6 +125,8 @@ class ResponsiveScreen extends StatelessWidget {
   }
 }
 
+bool isEnglish = true;
+
 // stackoverflow code
 // https://stackoverflow.com/a/71645130/12785478
 
@@ -178,8 +181,16 @@ double f24 = 3 * pt; //  24px
 double f16 = 2 * pt; //  16px
 double W = getSize(128);
 double H = getSize(170);
+double ppi = 0;
+double f12pt = 0;
+// double f10pt = 0;
+// double f8pt = 0;
+double fDesc = 0;
+double descMaxWidth = 0;
+bool isMobile = false;
+double padDesc = 8 * pt;
 
-void calculateSizes() {
+void calculateSizes(Size physSize, double physDiagonal) {
   size = window.physicalSize / window.devicePixelRatio;
   pt = getSize(1); // size of local point (default is 8)
   f96 = 12 * pt; // 96px
@@ -192,4 +203,18 @@ void calculateSizes() {
   f16 = 2 * pt; //  16px
   W = getSize(128);
   H = getSize(170);
+  print(window.physicalSize);
+  print(physSize);
+  ppi = size.height / physSize.height;
+  f12pt = ppi / 6;
+  // f10pt = ppi / 7.2;
+  // f8pt = ppi / 9;
+  isMobile = physDiagonal <= 7;
+  padDesc = isMobile ? 4 * pt : 8 * pt;
+  fDesc = f12pt;
+  if (size.width < 24 * fDesc) fDesc = size.width / 24;
+  // fDesc = fDesc.toInt().toDouble();
+  descMaxWidth = 34 * fDesc;
+  print(ppi);
+  print(fDesc);
 }

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sized_context/sized_context.dart';
 
 import '../style/palette.dart';
 import '../style/typography.dart';
@@ -24,7 +25,8 @@ class _AppendixScreenState extends State<AppendixScreen> {
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
-
+    Size physSize = context.sizeInches;
+    double physDiagonal = context.diagonalInches;
     void _showDesc() {
       if (!_descVisible) {
         setState(() {
@@ -47,7 +49,7 @@ class _AppendixScreenState extends State<AppendixScreen> {
       backgroundColor: palette.tableColor,
       body: LayoutBuilder(
         builder: (context, constraints) {
-          calculateSizes();
+          calculateSizes(physSize, physDiagonal);
           final double _W = getSize(116);
           final double _H = getSize(158);
 

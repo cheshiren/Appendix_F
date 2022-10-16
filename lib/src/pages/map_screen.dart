@@ -1,18 +1,21 @@
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:Appendix_F/src/pages/appendix_screen.dart';
-import 'package:Appendix_F/src/pages/photo_screens.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:sized_context/sized_context.dart';
 
+import '../../main.dart';
+import '../resources/resources.dart';
 import '../style/palette.dart';
 import '../style/responsive_screen.dart';
 import '../style/table_pattern.dart';
 import '../style/inner_cover.dart';
+import 'appendix_screen.dart';
+import 'photo_screens.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -27,7 +30,8 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
-
+    Size physSize = context.sizeInches;
+    double physDiagonal = context.diagonalInches;
     void _showDesc() {
       if (!_descVisible) {
         setState(() {
@@ -50,7 +54,7 @@ class _MapScreenState extends State<MapScreen> {
       backgroundColor: palette.tableColor,
       body: LayoutBuilder(
         builder: (context, constraints) {
-          calculateSizes();
+          calculateSizes(physSize, physDiagonal);
           final double _W = getSize(116);
           final double _H = getSize(158);
           final String imageLink =
@@ -80,7 +84,9 @@ class _MapScreenState extends State<MapScreen> {
                   child: Stack(
                     alignment: AlignmentDirectional.center,
                     children: [
-                      Image.asset(imageLink),
+                      mapImage,
+                      // Image.asset(imageLink),
+                      // CachedNetworkImage()
                       Positioned(
                         top: 86 * pt,
                         left: 50 * pt,
@@ -118,7 +124,8 @@ class _MapScreenState extends State<MapScreen> {
                                           decoration: BoxDecoration(
                                               color: Color(0xE61E1E1E),
                                               borderRadius:
-                                                  BorderRadius.circular(20)),
+                                                  BorderRadius.circular(
+                                                      2 * pt)),
                                           child: Padding(
                                             padding: EdgeInsets.symmetric(
                                               vertical: 6 * pt,

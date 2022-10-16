@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:sized_context/sized_context.dart';
 
 import '../style/palette.dart';
 import '../style/responsive_screen.dart';
@@ -25,7 +26,8 @@ class _YagodaScreenState extends State<YagodaScreen> {
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
-
+    Size physSize = context.sizeInches;
+    double physDiagonal = context.diagonalInches;
     void _showDesc() {
       if (!_descVisible) {
         setState(() {
@@ -48,7 +50,7 @@ class _YagodaScreenState extends State<YagodaScreen> {
       backgroundColor: palette.tableColor,
       body: LayoutBuilder(
         builder: (context, constraints) {
-          calculateSizes();
+          calculateSizes(physSize, physDiagonal);
           final double _W = getSize(108);
           final double _H = getSize(122);
 

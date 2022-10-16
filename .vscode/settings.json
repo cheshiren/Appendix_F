@@ -1,5 +1,5 @@
 {
-	"cSpell.language": "ru,ru-RU,en-GB,en,en-US",
+	"cSpell.language": "ru-RU,en-GB,en,en-US,ru",
 	"cSpell.enableFiletypes": [
 		"dart"
 	],
@@ -8,6 +8,8 @@
 		"Emblema",
 		"Leaderboard",
 		"leaderboards",
+		"Minecart",
+		"Oooh",
 		"Orelega",
 		"yagoda",
 		"Гермоконтроль"

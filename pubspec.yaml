@@ -26,6 +26,8 @@ dependencies:
   patterns_canvas: ^0.4.0
   simple_gradient_text: ^1.2.4
   dotted_border: ^2.0.0+2
+  cached_network_image: ^3.2.2
+  sized_context: ^1.0.0+1
 
   # If you don't need one of the following dependencies,
   # delete the relevant line below, and get rid of any Dart code

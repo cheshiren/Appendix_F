@@ -7,6 +7,9 @@
 // import 'package:firebase_core/firebase_core.dart';
 // import 'firebase_options.dart';
 
+// import 'dart:html';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -136,8 +139,9 @@ class MyApp extends StatelessWidget {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) =>
-            const FrontCoverScreen(key: Key('front cover')),
+        builder: (context, state) {
+          return const FrontCoverScreen(key: Key('front cover'));
+        },
         // const BackCoverScreen(key: Key('front cover')),
         // routes: [
         //   GoRoute(
@@ -223,7 +227,7 @@ class MyApp extends StatelessWidget {
 
   final AdsController? adsController;
 
-  const MyApp({
+  MyApp({
     required this.playerProgressPersistence,
     required this.settingsPersistence,
     required this.inAppPurchaseController,

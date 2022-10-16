@@ -5,7 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sized_context/sized_context.dart';
 
+import '../resources/resources.dart';
 import '../style/palette.dart';
 import '../style/typography.dart';
 import '../style/responsive_screen.dart';
@@ -27,9 +29,8 @@ class _ConclusionScreenState extends State<ConclusionScreen> {
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
-    final String imageLink = kReleaseMode
-        ? 'assets/images/Emblema_FSB.png'
-        : 'images/Emblema_FSB.png';
+    Size physSize = context.sizeInches;
+    double physDiagonal = context.diagonalInches;
     void _showDesc() {
       if (!_descVisible) {
         setState(() {
@@ -52,7 +53,7 @@ class _ConclusionScreenState extends State<ConclusionScreen> {
       backgroundColor: palette.tableColor,
       body: LayoutBuilder(
         builder: (context, constraints) {
-          calculateSizes();
+          calculateSizes(physSize, physDiagonal);
           final double _W = getSize(116);
           final double _H = getSize(158);
 
@@ -120,8 +121,8 @@ class _ConclusionScreenState extends State<ConclusionScreen> {
                                 ),
                                 Transform.rotate(
                                   angle: pi / 180 * 4,
-                                  child: Image.asset(
-                                    imageLink,
+                                  child: Image(
+                                    image: FSBseal.image,
                                     width: 28 * pt,
                                     color: Color(0xCC8e2121),
                                   ),
