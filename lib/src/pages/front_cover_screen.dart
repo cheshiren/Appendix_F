@@ -3,28 +3,29 @@
 // BSD-style license that can be found in the LICENSE file.
 
 // import 'dart:ui' as ui;
-import 'dart:developer';
+// import 'dart:developer';
 import 'dart:math';
 
-import 'package:flutter/foundation.dart';
+// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
+// import 'package:flutter/services.dart';
+// import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:inner_shadow_widget/inner_shadow_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sized_context/sized_context.dart';
 
-import '../audio/audio_controller.dart';
+// import '../audio/audio_controller.dart';
 // import '../audio/sounds.dart';
 import '../resources/resources.dart';
-import '../settings/settings.dart';
+// import '../settings/settings.dart';
 import '../style/Emblema_KGB_colored.dart';
 import '../style/palette.dart';
 import '../style/responsive_screen.dart';
 import '../style/table_pattern.dart';
 import '../style/typography.dart';
+import '../texts/translations.dart';
 import 'martyr_screen.dart';
 
 class FrontCoverScreen extends StatefulWidget {
@@ -56,8 +57,8 @@ class _FrontCoverScreenState extends State<FrontCoverScreen> {
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
-    final settingsController = context.watch<SettingsController>();
-    final audioController = context.watch<AudioController>();
+    // final settingsController = context.watch<SettingsController>();
+    // final audioController = context.watch<AudioController>();
     Size physSize = context.sizeInches;
     double physDiagonal = context.diagonalInches;
 
@@ -65,7 +66,7 @@ class _FrontCoverScreenState extends State<FrontCoverScreen> {
     // settingsController.toggleMusicOn();
     // }
 
-    audioController.stopMusic();
+    // audioController.stopMusic();
 
     return Scaffold(
       backgroundColor: palette.tableColor,
@@ -340,7 +341,9 @@ class _FrontCoverScreenState extends State<FrontCoverScreen> {
                                       BoxConstraints(maxWidth: descMaxWidth),
                                   child: SingleChildScrollView(
                                     child: Text(
-                                      "абвгдеёжзийклмнопрстуфхцчшщъыьэюяабвгдеёжзийклмнопрстуфхцчшщъыьэюяабвгдеёжзийклмнопрстуфхц\n\nабвгдеёжзийклмнопрстуфхцчшщъыьэюяабвгдеёжзийклмнопрстуфхцчшщъыьэюя\n\nабвгдеёжзийклмнопрстуфхцчшщъыьэюяабвгдеёжзийк\n\n\nWhen the great and terrible war ended, the victors - to their considerable surprise - found themselves in possession of a wealth of mysterious and inexplicable evidence acquired by the Third Reich during the short-lived activity of the occult society Ahnenerbe. These testimonies covered a variety of fields, from biology to astronomy, but the most abundant were, of course, archaeological discoveries.\n\nHowever, the country was restoring what was destroyed by the war with unimaginable effort and the national economy had no time for archaeology. Nevertheless, Commissariat of Education considered some of the materials so serious that it organized a full expedition of professors and students of the Faculty of History of Moscow State University in a remote and remote corner of China - the Taklamakan Desert.\n\nThe available data is not enough to understand what was the impetus for the cabinet masters to make such an expenditure and what the results of the event were. However, the “Appendix F” documents are enough to assign the lost “Expedition to the Taklamakan” catalog the MARTYR class of danger and to take appropriate measures for non-proliferation of information about it.\n\nBerry M.A.\nDecember 11, 1999.",
+                                      F2ATxt[lang] != null
+                                          ? F2ATxt[lang]!
+                                          : "ERROR",
                                       style: TextStyle(
                                         fontFamily: "PT Sans",
                                         fontSize: fDesc,

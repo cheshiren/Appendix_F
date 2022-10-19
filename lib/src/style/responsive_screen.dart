@@ -2,8 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'package:Appendix_F/src/texts/translations.dart';
 import 'package:flutter/material.dart';
-import 'package:sized_context/sized_context.dart';
+// import 'package:sized_context/sized_context.dart';
 
 /// A widget that makes it easy to create a screen with a square-ish
 /// main area, a smaller menu area, and a small area for a message on top.
@@ -126,6 +127,7 @@ class ResponsiveScreen extends StatelessWidget {
 }
 
 bool isEnglish = true;
+l10n lang = l10n.ru;
 
 // stackoverflow code
 // https://stackoverflow.com/a/71645130/12785478
@@ -144,7 +146,8 @@ double getHorizontalSize(double px) {
 /// This method is used to set padding/margin (for the top and bottom side)
 /// and height of the screen or widget according to the Viewport height.
 double getVerticalSize(double px) {
-  num statusBar = MediaQueryData.fromWindow(window).viewPadding.top;
+  // num statusBar = MediaQueryData.fromWindow(window).viewPadding.top;
+  num statusBar = 0;
   num screenHeight = size.height - statusBar - padding * 2;
   return px * (screenHeight / (1360 / 8));
 }

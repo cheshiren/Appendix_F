@@ -9,8 +9,8 @@
 
 // import 'dart:html';
 
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -18,63 +18,64 @@ import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
 
-import 'src/ads/ads_controller.dart';
+// import 'src/ads/ads_controller.dart';
 import 'src/app_lifecycle/app_lifecycle.dart';
-import 'src/audio/audio_controller.dart';
-import 'src/crashlytics/crashlytics.dart';
-import 'src/games_services/games_services.dart';
-import 'src/games_services/score.dart';
-import 'src/in_app_purchase/in_app_purchase.dart';
-import 'src/level_selection/level_selection_screen.dart';
-import 'src/level_selection/levels.dart';
-import 'src/pages/appendix_screen.dart';
-import 'src/pages/back_cover_screen.dart';
-import 'src/pages/conclusion_screen.dart';
+// import 'src/audio/audio_controller.dart';
+// import 'src/crashlytics/crashlytics.dart';
+// import 'src/games_services/games_services.dart';
+// import 'src/games_services/score.dart';
+// import 'src/in_app_purchase/in_app_purchase.dart';
+// import 'src/level_selection/level_selection_screen.dart';
+// import 'src/level_selection/levels.dart';
+// import 'src/pages/appendix_screen.dart';
+// import 'src/pages/back_cover_screen.dart';
+// import 'src/pages/conclusion_screen.dart';
 import 'src/pages/front_cover_screen.dart';
-import 'src/pages/map_screen.dart';
-import 'src/pages/note_screen.dart';
-import 'src/pages/photo_screens.dart';
-import 'src/pages/vespers_note_screen.dart';
-import 'src/pages/yagoda_screen.dart';
-import 'src/play_session/play_session_screen.dart';
+// import 'src/pages/map_screen.dart';
+// import 'src/pages/note_screen.dart';
+// import 'src/pages/photo_screens.dart';
+// import 'src/pages/vespers_note_screen.dart';
+// import 'src/pages/yagoda_screen.dart';
+// import 'src/play_session/play_session_screen.dart';
 import 'src/player_progress/persistence/local_storage_player_progress_persistence.dart';
 import 'src/player_progress/persistence/player_progress_persistence.dart';
 import 'src/player_progress/player_progress.dart';
 import 'src/settings/persistence/local_storage_settings_persistence.dart';
 import 'src/settings/persistence/settings_persistence.dart';
 import 'src/settings/settings.dart';
-import 'src/settings/settings_screen.dart';
-import 'src/style/my_transition.dart';
+// import 'src/settings/settings_screen.dart';
+// import 'src/style/my_transition.dart';
 import 'src/style/palette.dart';
-import 'src/style/snack_bar.dart';
-import 'src/win_game/win_game_screen.dart';
+// import 'src/style/snack_bar.dart';
+// import 'src/win_game/win_game_screen.dart';
 
-Future<void> main() async {
-  // To enable Firebase Crashlytics, uncomment the following lines and
-  // the import statements at the top of this file.
-  // See the 'Crashlytics' section of the main README.md file for details.
+// Future<void> main() async {
+//   // To enable Firebase Crashlytics, uncomment the following lines and
+//   // the import statements at the top of this file.
+//   // See the 'Crashlytics' section of the main README.md file for details.
 
-  FirebaseCrashlytics? crashlytics;
-  // if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
-  //   try {
-  //     WidgetsFlutterBinding.ensureInitialized();
-  //     await Firebase.initializeApp(
-  //       options: DefaultFirebaseOptions.currentPlatform,
-  //     );
-  //     crashlytics = FirebaseCrashlytics.instance;
-  //   } catch (e) {
-  //     debugPrint("Firebase couldn't be initialized: $e");
-  //   }
-  // }
+//   // FirebaseCrashlytics? crashlytics;
+//   // if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
+//   //   try {
+//   //     WidgetsFlutterBinding.ensureInitialized();
+//   //     await Firebase.initializeApp(
+//   //       options: DefaultFirebaseOptions.currentPlatform,
+//   //     );
+//   //     crashlytics = FirebaseCrashlytics.instance;
+//   //   } catch (e) {
+//   //     debugPrint("Firebase couldn't be initialized: $e");
+//   //   }
+//   // }
 
-  await guardWithCrashlytics(
-    guardedMain,
-    crashlytics: crashlytics,
-  );
-}
+//   // await guardWithCrashlytics(
+//   //   guardedMain,
+//   //   // crashlytics: crashlytics,
+//   // );
+// }
 
 /// Without logging and crash reporting, this would be `void main()`.
-void guardedMain() {
+// void guardedMain() {
+void main() {
   if (kReleaseMode) {
     // Don't log anything below warnings in production.
     Logger.root.level = Level.WARNING;
@@ -92,10 +93,11 @@ void guardedMain() {
     SystemUiMode.edgeToEdge,
   );
 
+  // ignore: todo
   // TODO: When ready, uncomment the following lines to enable integrations.
   //       Read the README for more info on each integration.
 
-  AdsController? adsController;
+  // AdsController? adsController;
   // if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
   //   /// Prepare the google_mobile_ads plugin so that the first ad loads
   //   /// faster. This can be done later or with a delay if startup
@@ -104,14 +106,14 @@ void guardedMain() {
   //   adsController.initialize();
   // }
 
-  GamesServicesController? gamesServicesController;
+  // GamesServicesController? gamesServicesController;
   // if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
   //   gamesServicesController = GamesServicesController()
   //     // Attempt to log the player in.
   //     ..initialize();
   // }
 
-  InAppPurchaseController? inAppPurchaseController;
+  // InAppPurchaseController? inAppPurchaseController;
   // if (!kIsWeb && (Platform.isIOS || Platform.isAndroid)) {
   //   inAppPurchaseController = InAppPurchaseController(InAppPurchase.instance)
   //     // Subscribing to [InAppPurchase.instance.purchaseStream] as soon
@@ -125,9 +127,9 @@ void guardedMain() {
     MyApp(
       settingsPersistence: LocalStorageSettingsPersistence(),
       playerProgressPersistence: LocalStoragePlayerProgressPersistence(),
-      inAppPurchaseController: inAppPurchaseController,
-      adsController: adsController,
-      gamesServicesController: gamesServicesController,
+      // inAppPurchaseController: inAppPurchaseController,
+      // adsController: adsController,
+      // gamesServicesController: gamesServicesController,
     ),
   );
 }
@@ -221,18 +223,18 @@ class MyApp extends StatelessWidget {
 
   final SettingsPersistence settingsPersistence;
 
-  final GamesServicesController? gamesServicesController;
+  // final GamesServicesController? gamesServicesController;
 
-  final InAppPurchaseController? inAppPurchaseController;
+  // final InAppPurchaseController? inAppPurchaseController;
 
-  final AdsController? adsController;
+  // final AdsController? adsController;
 
   MyApp({
     required this.playerProgressPersistence,
     required this.settingsPersistence,
-    required this.inAppPurchaseController,
-    required this.adsController,
-    required this.gamesServicesController,
+    // required this.inAppPurchaseController,
+    // required this.adsController,
+    // required this.gamesServicesController,
     super.key,
   });
 
@@ -248,32 +250,32 @@ class MyApp extends StatelessWidget {
               return progress;
             },
           ),
-          Provider<GamesServicesController?>.value(
-              value: gamesServicesController),
-          Provider<AdsController?>.value(value: adsController),
-          ChangeNotifierProvider<InAppPurchaseController?>.value(
-              value: inAppPurchaseController),
+          // Provider<GamesServicesController?>.value(
+          //     value: gamesServicesController),
+          // Provider<AdsController?>.value(value: adsController),
+          // ChangeNotifierProvider<InAppPurchaseController?>.value(
+          //     value: inAppPurchaseController),
           Provider<SettingsController>(
             lazy: false,
             create: (context) => SettingsController(
               persistence: settingsPersistence,
             )..loadStateFromPersistence(),
           ),
-          ProxyProvider2<SettingsController, ValueNotifier<AppLifecycleState>,
-              AudioController>(
-            // Ensures that the AudioController is created on startup,
-            // and not "only when it's needed", as is default behavior.
-            // This way, music starts immediately.
-            lazy: false,
-            create: (context) => AudioController()..initialize(),
-            update: (context, settings, lifecycleNotifier, audio) {
-              if (audio == null) throw ArgumentError.notNull();
-              audio.attachSettings(settings);
-              audio.attachLifecycleNotifier(lifecycleNotifier);
-              return audio;
-            },
-            dispose: (context, audio) => audio.dispose(),
-          ),
+          // ProxyProvider2<SettingsController, ValueNotifier<AppLifecycleState>,
+          //     AudioController>(
+          //   // Ensures that the AudioController is created on startup,
+          //   // and not "only when it's needed", as is default behavior.
+          //   // This way, music starts immediately.
+          //   lazy: false,
+          //   create: (context) => AudioController()..initialize(),
+          //   update: (context, settings, lifecycleNotifier, audio) {
+          //     if (audio == null) throw ArgumentError.notNull();
+          //     audio.attachSettings(settings);
+          //     audio.attachLifecycleNotifier(lifecycleNotifier);
+          //     return audio;
+          //   },
+          //   dispose: (context, audio) => audio.dispose(),
+          // ),
           Provider(
             create: (context) => Palette(),
           ),
@@ -297,7 +299,7 @@ class MyApp extends StatelessWidget {
             routeInformationProvider: _router.routeInformationProvider,
             routeInformationParser: _router.routeInformationParser,
             routerDelegate: _router.routerDelegate,
-            scaffoldMessengerKey: scaffoldMessengerKey,
+            // scaffoldMessengerKey: scaffoldMessengerKey,
           );
         }),
       ),

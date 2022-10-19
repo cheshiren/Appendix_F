@@ -4,11 +4,10 @@ import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:sized_context/sized_context.dart';
 
-import '../../main.dart';
 import '../resources/resources.dart';
 import '../style/palette.dart';
 import '../style/responsive_screen.dart';

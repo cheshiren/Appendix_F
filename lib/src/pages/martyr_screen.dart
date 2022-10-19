@@ -2,11 +2,11 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:sized_context/sized_context.dart';
 
 import '../style/palette.dart';
-import '../style/typography.dart';
+// import '../style/typography.dart';
 import '../style/responsive_screen.dart';
 import '../style/table_pattern.dart';
 import '../style/inner_cover.dart';

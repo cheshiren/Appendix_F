@@ -8,14 +8,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
+// import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:sized_context/sized_context.dart';
 
 import '../audio/audio_controller.dart';
-import '../settings/settings.dart';
+// import '../settings/settings.dart';
 import '../style/palette.dart';
 import '../style/typography.dart';
 import '../style/responsive_screen.dart';
@@ -61,8 +61,8 @@ class _PhotoScreenState extends State<PhotoScreen> {
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
-    final settingsController = context.watch<SettingsController>();
-    final audioController = context.watch<AudioController>();
+    // final settingsController = context.watch<SettingsController>();
+    // final audioController = context.watch<AudioController>();
     Size physSize = context.sizeInches;
     double physDiagonal = context.diagonalInches;
     // audioController.stopMusic();

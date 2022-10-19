@@ -1,9 +1,9 @@
-import 'package:flutter/foundation.dart';
+// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 
 import '../resources/resources.dart';
-import '../style/responsive_screen.dart';
+// import '../style/responsive_screen.dart';
 import 'photo_screen_template.dart';
 import 'map_screen.dart';
 import 'vespers_note_screen.dart';
