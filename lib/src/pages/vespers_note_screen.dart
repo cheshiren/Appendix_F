@@ -1,6 +1,8 @@
 import 'dart:math';
 import 'dart:ui';
 
+import 'package:Appendix_F/src/settings/settings.dart';
+import 'package:Appendix_F/src/texts/translations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -61,6 +63,7 @@ class _VespersNoteScreenState extends State<VespersNoteScreen> {
           return CustomPaint(
             painter: TablePattern(),
             child: InnerCover(
+              overlayTxt: vespersNoteTxt[lang],
               fromScreen: Photo8AScreen(),
               toScreen: Photo1BScreen(),
               child: Center(
@@ -108,7 +111,7 @@ class _VespersNoteScreenState extends State<VespersNoteScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Вниманию сотрудников департамента архивации.\n\nСледующая группа фотографий, в основном, повторяет предыдущие. Однако, отличия заметны и — на данном этапе развития инструментария — необъяснимы.\n\nПеред продолжением подготовить «Формуляр 09-В-2».",
+                                  "Вниманию сотрудников департамента архивации.\n\nСледующая группа фотографий, в основном, повторяет предыдущие. Однако, отличия заметны и — на данном этапе развития инструментария — необъяснимы.\n\nПеред продолжением подготовить «Формуляр 09-В-2».",
                                   style: written(),
                                 ),
                                 SizedBox(

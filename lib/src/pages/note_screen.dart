@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:Appendix_F/src/settings/settings.dart';
+import 'package:Appendix_F/src/texts/translations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // import 'package:google_fonts/google_fonts.dart';
@@ -61,6 +63,7 @@ class _NoteScreenState extends State<NoteScreen> {
           return CustomPaint(
             painter: TablePattern(),
             child: InnerCover(
+              overlayTxt: noteTxt[lang],
               fromScreen: MartyrScreen(),
               toScreen: YagodaScreen(),
               child: Padding(

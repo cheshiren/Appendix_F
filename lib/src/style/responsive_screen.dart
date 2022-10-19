@@ -126,9 +126,6 @@ class ResponsiveScreen extends StatelessWidget {
   }
 }
 
-bool isEnglish = true;
-l10n lang = l10n.ru;
-
 // stackoverflow code
 // https://stackoverflow.com/a/71645130/12785478
 
@@ -212,7 +209,8 @@ void calculateSizes(Size physSize, double physDiagonal) {
   f12pt = ppi / 6;
   // f10pt = ppi / 7.2;
   // f8pt = ppi / 9;
-  isMobile = physDiagonal <= 7;
+  // isMobile = physDiagonal <= 7;
+  isMobile = size.width <= 600;
   padDesc = isMobile ? 4 * pt : 8 * pt;
   fDesc = f12pt;
   if (size.width < 24 * fDesc) fDesc = size.width / 24;

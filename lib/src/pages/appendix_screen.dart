@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:Appendix_F/src/settings/settings.dart';
+import 'package:Appendix_F/src/texts/translations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sized_context/sized_context.dart';
@@ -56,6 +58,7 @@ class _AppendixScreenState extends State<AppendixScreen> {
           return CustomPaint(
             painter: TablePattern(),
             child: InnerCover(
+              overlayTxt: appendixTxt[lang],
               fromScreen: YagodaScreen(),
               toScreen: MapScreen(),
               child: Padding(

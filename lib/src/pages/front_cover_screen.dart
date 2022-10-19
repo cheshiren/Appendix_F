@@ -7,6 +7,7 @@
 import 'dart:math';
 
 // import 'package:flutter/foundation.dart';
+import 'package:Appendix_F/src/style/mobile_overlay.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 // import 'package:go_router/go_router.dart';
@@ -20,6 +21,7 @@ import 'package:sized_context/sized_context.dart';
 // import '../audio/sounds.dart';
 import '../resources/resources.dart';
 // import '../settings/settings.dart';
+import '../settings/settings.dart';
 import '../style/Emblema_KGB_colored.dart';
 import '../style/palette.dart';
 import '../style/responsive_screen.dart';
@@ -36,7 +38,7 @@ class FrontCoverScreen extends StatefulWidget {
 }
 
 class _FrontCoverScreenState extends State<FrontCoverScreen> {
-  bool overlayDesc = false;
+  bool _overlayDesc = false;
 
   @override
   void didChangeDependencies() {
@@ -315,47 +317,14 @@ class _FrontCoverScreenState extends State<FrontCoverScreen> {
                             ),
                             GestureDetector(
                               onTap: () => setState(() {
-                                overlayDesc = true;
+                                _overlayDesc = true;
                               }),
                             )
                           ],
                         ),
                       ),
                     ),
-                    (isMobile || isEnglish)
-                        ? Visibility(
-                            visible: overlayDesc,
-                            child: GestureDetector(
-                              onTap: () => setState(() {
-                                overlayDesc = false;
-                              }),
-                              child: Container(
-                                height: double.infinity,
-                                width: double.infinity,
-                                color: Colors.black87,
-                                alignment: AlignmentDirectional.center,
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 16 * pt, horizontal: padDesc),
-                                child: ConstrainedBox(
-                                  constraints:
-                                      BoxConstraints(maxWidth: descMaxWidth),
-                                  child: SingleChildScrollView(
-                                    child: Text(
-                                      F2ATxt[lang] != null
-                                          ? F2ATxt[lang]!
-                                          : "ERROR",
-                                      style: TextStyle(
-                                        fontFamily: "PT Sans",
-                                        fontSize: fDesc,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          )
-                        : Container()
+                    TextOverlay(txt: coverTxt[lang], overlayDesc: _overlayDesc),
                   ],
                 ),
               ),

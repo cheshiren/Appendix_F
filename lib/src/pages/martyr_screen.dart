@@ -1,10 +1,12 @@
 import 'dart:math';
 
+import 'package:Appendix_F/src/texts/translations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // import 'package:google_fonts/google_fonts.dart';
 import 'package:sized_context/sized_context.dart';
 
+import '../settings/settings.dart';
 import '../style/palette.dart';
 // import '../style/typography.dart';
 import '../style/responsive_screen.dart';
@@ -59,6 +61,7 @@ class _MartyrScreenState extends State<MartyrScreen> {
             child: InnerCover(
               fromScreen: FrontCoverScreen(),
               toScreen: NoteScreen(),
+              overlayTxt: martyrTxt[lang],
               child: Padding(
                 padding: EdgeInsets.all((H - _H) / 2),
                 child: Stack(

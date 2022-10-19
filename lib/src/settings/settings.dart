@@ -4,6 +4,7 @@
 
 import 'package:flutter/foundation.dart';
 
+import '../texts/translations.dart';
 import 'persistence/settings_persistence.dart';
 
 /// An class that holds settings like [playerName] or [musicOn],
@@ -60,3 +61,6 @@ class SettingsController {
     _persistence.saveSoundsOn(soundsOn.value);
   }
 }
+
+l10n lang = l10n.rus;
+bool nonRussian = (lang != l10n.rus);

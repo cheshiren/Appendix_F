@@ -37,6 +37,7 @@ class PhotoScreen extends StatefulWidget {
     this.svgString,
     this.svgDim,
     this.penText,
+    this.overlayTxt,
   });
 
   final String? fromRoute;
@@ -51,6 +52,7 @@ class PhotoScreen extends StatefulWidget {
   final String? svgString;
   final List<double>? svgDim;
   final String? penText;
+  final String? overlayTxt;
 
   @override
   State<PhotoScreen> createState() => _PhotoScreenState();
@@ -111,6 +113,7 @@ class _PhotoScreenState extends State<PhotoScreen> {
           return CustomPaint(
             painter: TablePattern(),
             child: InnerCover(
+              overlayTxt: widget.overlayTxt,
               fromScreen: widget.fromScreen,
               toScreen: widget.toScreen,
               child: Padding(
