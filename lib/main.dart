@@ -38,6 +38,7 @@ import 'src/pages/front_cover_screen.dart';
 // import 'src/pages/vespers_note_screen.dart';
 // import 'src/pages/yagoda_screen.dart';
 // import 'src/play_session/play_session_screen.dart';
+import 'src/pages/language_screen.dart';
 import 'src/player_progress/persistence/local_storage_player_progress_persistence.dart';
 import 'src/player_progress/persistence/player_progress_persistence.dart';
 import 'src/player_progress/player_progress.dart';
@@ -143,9 +144,9 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/',
         builder: (context, state) {
-          return const FrontCoverScreen(key: Key('front cover'));
+          // return const FrontCoverScreen(key: Key('front cover'));
           // },
-          // return const BackCoverScreen(key: Key('front cover'));
+          return const LanguageScreen(key: Key('language'));
         },
         // routes: [
         //   GoRoute(
