@@ -119,7 +119,7 @@ class _ConclusionScreenState extends State<ConclusionScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "Класс опасности материалов подтверждаю.\nУсловия хранения оставить без изменений.\nСледующий контроль не позднее 2015 года.\n\nСт. л—т Ю. Д. Веспер\n15 марта 2007 года.",
+                                  "Класс опасности материалов подтверждаю.\nУсловия хранения оставить без изменений.\nСледующий контроль не позднее 2015 года.\n\nГермоконтроллер ст. л—т Ю. Д. Веспер\n15 марта 2007 года.",
                                   style: newStyle(),
                                 ),
                                 Transform.rotate(

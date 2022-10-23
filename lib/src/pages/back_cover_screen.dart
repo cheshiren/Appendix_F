@@ -169,7 +169,7 @@ class _BackCoverScreenState extends State<BackCoverScreen> {
                                 Positioned(
                                     top: 14 * pt,
                                     left: 24 * pt,
-                                    child: Text("Старший лейтенант",
+                                    child: Text("геромоконтроллер",
                                         style: written())),
                                 Positioned(
                                     top: 18 * pt,

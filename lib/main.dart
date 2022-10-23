@@ -143,9 +143,9 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/',
         builder: (context, state) {
-          // return const FrontCoverScreen(key: Key('front cover'));
+          return const FrontCoverScreen(key: Key('front cover'));
           // },
-          return const BackCoverScreen(key: Key('front cover'));
+          // return const BackCoverScreen(key: Key('front cover'));
         },
         // routes: [
         //   GoRoute(

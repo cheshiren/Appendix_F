@@ -62,5 +62,5 @@ class SettingsController {
   }
 }
 
-l10n lang = l10n.rus;
+l10n lang = l10n.eng;
 bool nonRussian = (lang != l10n.rus);
