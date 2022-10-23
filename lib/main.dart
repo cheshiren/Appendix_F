@@ -30,6 +30,7 @@ import 'src/app_lifecycle/app_lifecycle.dart';
 // import 'src/pages/appendix_screen.dart';
 // import 'src/pages/back_cover_screen.dart';
 // import 'src/pages/conclusion_screen.dart';
+import 'src/pages/back_cover_screen.dart';
 import 'src/pages/front_cover_screen.dart';
 // import 'src/pages/map_screen.dart';
 // import 'src/pages/note_screen.dart';
@@ -142,9 +143,10 @@ class MyApp extends StatelessWidget {
       GoRoute(
         path: '/',
         builder: (context, state) {
-          return const FrontCoverScreen(key: Key('front cover'));
+          // return const FrontCoverScreen(key: Key('front cover'));
+          // },
+          return const BackCoverScreen(key: Key('front cover'));
         },
-        // const BackCoverScreen(key: Key('front cover')),
         // routes: [
         //   GoRoute(
         //       path: 'play',

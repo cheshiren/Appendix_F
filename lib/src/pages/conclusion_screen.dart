@@ -2,6 +2,8 @@ import 'dart:math';
 // import 'dart:ui';
 
 // import 'package:flutter/foundation.dart';
+import 'package:Appendix_F/src/settings/settings.dart';
+import 'package:Appendix_F/src/texts/translations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // import 'package:google_fonts/google_fonts.dart';
@@ -60,6 +62,7 @@ class _ConclusionScreenState extends State<ConclusionScreen> {
           return CustomPaint(
             painter: TablePattern(),
             child: InnerCover(
+              overlayTxt: conclusionTxt[lang],
               fromScreen: Photo8BScreen(),
               toScreen: BackCoverScreen(),
               child: Padding(

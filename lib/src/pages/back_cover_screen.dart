@@ -1,6 +1,8 @@
 import 'dart:math';
 
 // import 'package:flutter/foundation.dart';
+import 'package:Appendix_F/src/settings/settings.dart';
+import 'package:Appendix_F/src/texts/translations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -63,12 +65,14 @@ class _BackCoverScreenState extends State<BackCoverScreen> {
           return CustomPaint(
             painter: TablePattern(),
             child: InnerCover(
+              overlayTxt: backCoverTxt[lang],
               fromScreen: ConclusionScreen(),
               child: Stack(
-                alignment: AlignmentDirectional.centerStart,
+                clipBehavior: Clip.none,
+                // alignment: AlignmentDirectional.centerStart,
                 children: [
                   Positioned(
-                    top: (H - 115 * pt) / 2,
+                    top: (H - 251 * pt) / 2,
                     left: 5 * pt,
                     child: SvgPicture.string(
                       svgString,
@@ -76,7 +80,7 @@ class _BackCoverScreenState extends State<BackCoverScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 39.5 * pt,
+                    top: -28.5 * pt,
                     left: 33.5 * pt,
                     child: Transform.rotate(
                       angle: -pi / 2,

@@ -95,6 +95,7 @@ class _InnerCoverState extends State<InnerCover> {
                 ],
               ),
               child: Stack(
+                alignment: AlignmentDirectional.centerStart,
                 children: [
                   widget.child,
                   if (nonRussian || isMobile)
