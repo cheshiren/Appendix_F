@@ -4,7 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:google_fonts/google_fonts.dart';
+// import 'package:google_fonts/google_fonts.dart';
 import 'package:inner_shadow_widget/inner_shadow_widget.dart';
 
 import 'responsive_screen.dart';
@@ -114,7 +114,7 @@ TextStyle oldPrint() {
 }
 
 TextStyle newStyle() {
-  final palette = new Palette();
+  // final palette = new Palette();
   return TextStyle(
       fontFamily: "PT Sans",
       color: Color(0xBD000000),

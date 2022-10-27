@@ -22,30 +22,30 @@ class AppendixScreen extends StatefulWidget {
 }
 
 class _AppendixScreenState extends State<AppendixScreen> {
-  bool _descVisible = false;
+  // bool _descVisible = false;
 
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
     Size physSize = context.sizeInches;
     double physDiagonal = context.diagonalInches;
-    void _showDesc() {
-      if (!_descVisible) {
-        setState(() {
-          _descVisible = true;
-          print(_descVisible);
-        });
-      }
-    }
+    // void _showDesc() {
+    //   if (!_descVisible) {
+    //     setState(() {
+    //       _descVisible = true;
+    //       print(_descVisible);
+    //     });
+    //   }
+    // }
 
-    void _hideDesc() {
-      if (_descVisible) {
-        setState(() {
-          _descVisible = false;
-          print(_descVisible);
-        });
-      }
-    }
+    // void _hideDesc() {
+    //   if (_descVisible) {
+    //     setState(() {
+    //       _descVisible = false;
+    //       print(_descVisible);
+    //     });
+    //   }
+    // }
 
     return Scaffold(
       backgroundColor: palette.tableColor,

@@ -25,7 +25,7 @@ class BackCoverScreen extends StatefulWidget {
 }
 
 class _BackCoverScreenState extends State<BackCoverScreen> {
-  bool _descVisible = false;
+  // bool _descVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -36,23 +36,23 @@ class _BackCoverScreenState extends State<BackCoverScreen> {
         '''<svg width="456" height="757" viewBox="0 0 456 757" fill="none">
 <path d="M29.9998 342.5C23.601 287.77 11 94 7 2.99998L7 745.5C12.5 625 22.0745 384.438 29.9998 342.5ZM29.9998 342.5C159.35 334.062 382.593 330.094 429.5 338.5M29.9998 342.5C137.655 343.457 388.668 332.171 449 363.5" stroke="#C0BBB3" stroke-width="6" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"  shape-rendering="crispEdges"/></svg>''';
 
-    void _showDesc() {
-      if (!_descVisible) {
-        setState(() {
-          _descVisible = true;
-          print(_descVisible);
-        });
-      }
-    }
+    // void _showDesc() {
+    //   if (!_descVisible) {
+    //     setState(() {
+    //       _descVisible = true;
+    //       print(_descVisible);
+    //     });
+    //   }
+    // }
 
-    void _hideDesc() {
-      if (_descVisible) {
-        setState(() {
-          _descVisible = false;
-          print(_descVisible);
-        });
-      }
-    }
+    // void _hideDesc() {
+    //   if (_descVisible) {
+    //     setState(() {
+    //       _descVisible = false;
+    //       print(_descVisible);
+    //     });
+    //   }
+    // }
 
     return Scaffold(
       backgroundColor: palette.tableColor,

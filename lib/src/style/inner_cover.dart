@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:Appendix_F/src/style/mobile_overlay.dart';
-import 'package:Appendix_F/src/texts/translations.dart';
+// import 'package:Appendix_F/src/texts/translations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -23,7 +23,7 @@ class VespersNoteScreen extends StatefulWidget {
 }
 
 class _VespersNoteScreenState extends State<VespersNoteScreen> {
-  bool _descVisible = false;
+  // bool _descVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -34,23 +34,23 @@ class _VespersNoteScreenState extends State<VespersNoteScreen> {
         '''<svg width="262" height="69" viewBox="0 0 262 69" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1 6.01175C30.3798 1.99054 249.195 -2.8983 260 6.01182C270.805 14.9219 39.1321 15.6949 23 25.0118C6.86788 34.3288 231.928 24.3348 247.5 34.0118C263.072 43.6887 41.5 28.7281 172 67.0674" stroke="#000000" stroke-width="2"/></svg>''';
 
-    void _showDesc() {
-      if (!_descVisible) {
-        setState(() {
-          _descVisible = true;
-          print(_descVisible);
-        });
-      }
-    }
+    // void _showDesc() {
+    //   if (!_descVisible) {
+    //     setState(() {
+    //       _descVisible = true;
+    //       print(_descVisible);
+    //     });
+    //   }
+    // }
 
-    void _hideDesc() {
-      if (_descVisible) {
-        setState(() {
-          _descVisible = false;
-          print(_descVisible);
-        });
-      }
-    }
+    // void _hideDesc() {
+    //   if (_descVisible) {
+    //     setState(() {
+    //       _descVisible = false;
+    //       print(_descVisible);
+    //     });
+    //   }
+    // }
 
     return Scaffold(
       backgroundColor: palette.tableColor,

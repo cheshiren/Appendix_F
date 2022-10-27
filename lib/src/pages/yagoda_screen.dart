@@ -1,4 +1,4 @@
-import 'dart:math';
+// import 'dart:math';
 
 import 'package:Appendix_F/src/texts/translations.dart';
 import 'package:flutter/material.dart';
@@ -23,30 +23,30 @@ class YagodaScreen extends StatefulWidget {
 }
 
 class _YagodaScreenState extends State<YagodaScreen> {
-  bool _descVisible = false;
+  // bool _descVisible = false;
 
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
     Size physSize = context.sizeInches;
     double physDiagonal = context.diagonalInches;
-    void _showDesc() {
-      if (!_descVisible) {
-        setState(() {
-          _descVisible = true;
-          print(_descVisible);
-        });
-      }
-    }
+    // void _showDesc() {
+    //   if (!_descVisible) {
+    //     setState(() {
+    //       _descVisible = true;
+    //       print(_descVisible);
+    //     });
+    //   }
+    // }
 
-    void _hideDesc() {
-      if (_descVisible) {
-        setState(() {
-          _descVisible = false;
-          print(_descVisible);
-        });
-      }
-    }
+    // void _hideDesc() {
+    //   if (_descVisible) {
+    //     setState(() {
+    //       _descVisible = false;
+    //       print(_descVisible);
+    //     });
+    //   }
+    // }
 
     return Scaffold(
       backgroundColor: palette.tableColor,
@@ -140,15 +140,15 @@ class _YagodaScreenState extends State<YagodaScreen> {
   }
 }
 
-TextStyle _notePrint() {
-  final palette = new Palette();
-  return TextStyle(
-    fontFamily: "Anonymous Pro",
-    color: Colors.black87,
-    fontSize: f24,
-    height: f32 / f24,
-  );
-}
+// TextStyle _notePrint() {
+//   final palette = new Palette();
+//   return TextStyle(
+//     fontFamily: "Anonymous Pro",
+//     color: Colors.black87,
+//     fontSize: f24,
+//     height: f32 / f24,
+//   );
+// }
 
 class _tearLine extends StatelessWidget {
   const _tearLine({

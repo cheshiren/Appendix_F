@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:sized_context/sized_context.dart';
 
-import '../audio/audio_controller.dart';
+// import '../audio/audio_controller.dart';
 // import '../settings/settings.dart';
 import '../style/palette.dart';
 import '../style/typography.dart';
@@ -69,14 +69,14 @@ class _PhotoScreenState extends State<PhotoScreen> {
     double physDiagonal = context.diagonalInches;
     // audioController.stopMusic();
 
-    void _showDesc() {
-      if (!_descVisible) {
-        setState(() {
-          _descVisible = true;
-          print(_descVisible);
-        });
-      }
-    }
+    // void _showDesc() {
+    //   if (!_descVisible) {
+    //     setState(() {
+    //       _descVisible = true;
+    //       print(_descVisible);
+    //     });
+    //   }
+    // }
 
     void _hideDesc() {
       if (_descVisible) {
