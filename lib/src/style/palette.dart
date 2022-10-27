@@ -43,4 +43,5 @@ class Palette {
   Color get newestPaperColor => Color(0xFFF4F5FB);
   Color get penColor => Color(0xFF575C90);
   Color get inkColor => Color(0xFF473958);
+  Color get overlayColor => Color(0xE6141414);
 }

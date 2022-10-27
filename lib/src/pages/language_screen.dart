@@ -38,61 +38,55 @@ class LanguageScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(child: SizedBox(width: pt)),
-                Expanded(
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      // minimumSize: MaterialStatePropertyAll<Size>(
-                      //   Size(70, 20),
-                      // ),
-                      // maximumSize: MaterialStatePropertyAll<Size>(
-                      //   Size(70, 100),
-                      // ),
-                      shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.zero,
-                        ),
-                      ),
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                        Color(0x33F1D6A1),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    // minimumSize: MaterialStatePropertyAll<Size>(
+                    //   Size(70, 20),
+                    // ),
+                    // maximumSize: MaterialStatePropertyAll<Size>(
+                    //   Size(70, 100),
+                    // ),
+                    shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
                       ),
                     ),
-                    onPressed: () {
-                      lang = l10n.rus;
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const FrontCoverScreen()),
-                      );
-                    },
-                    child: _ltxt("Русский", TextAlign.center),
+                    backgroundColor: MaterialStatePropertyAll<Color>(
+                      Color(0x33F1D6A1),
+                    ),
                   ),
+                  onPressed: () {
+                    lang = l10n.rus;
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FrontCoverScreen()),
+                    );
+                  },
+                  child: _ltxt("Русский", TextAlign.center),
                 ),
                 SizedBox(width: 8.0),
-                Expanded(
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.zero,
-                        ),
-                      ),
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                        Color(0x33F1D6A1),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.zero,
                       ),
                     ),
-                    onPressed: () {
-                      lang = l10n.eng;
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const FrontCoverScreen()),
-                      );
-                    },
-                    child: _ltxt("English", TextAlign.center),
+                    backgroundColor: MaterialStatePropertyAll<Color>(
+                      Color(0x33F1D6A1),
+                    ),
                   ),
+                  onPressed: () {
+                    lang = l10n.eng;
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const FrontCoverScreen()),
+                    );
+                  },
+                  child: _ltxt("English", TextAlign.center),
                 ),
-                Expanded(child: SizedBox(width: 8.0)),
               ],
             )
           ],

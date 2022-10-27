@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:Appendix_F/src/style/palette.dart';
 import 'package:flutter/material.dart';
 
 import '../settings/settings.dart';
@@ -29,22 +32,25 @@ class _TextOverlayState extends State<TextOverlay> {
               onTap: () => setState(() {
                 widget.overlayDesc = false;
               }),
-              child: Container(
-                height: double.infinity,
-                width: double.infinity,
-                color: Colors.black87,
-                alignment: AlignmentDirectional.center,
-                padding: EdgeInsets.symmetric(
-                    vertical: 16 * pt, horizontal: padDesc),
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(maxWidth: descMaxWidth),
-                  child: SingleChildScrollView(
-                    child: Text(
-                      widget.txt != null ? widget.txt! : "ERROR",
-                      style: TextStyle(
-                        fontFamily: "PT Sans",
-                        fontSize: fDesc,
-                        color: Colors.white,
+              child: BackdropFilter(
+                filter: new ImageFilter.blur(sigmaX: pt, sigmaY: pt),
+                child: Container(
+                  height: double.infinity,
+                  width: double.infinity,
+                  color: Palette().overlayColor,
+                  alignment: AlignmentDirectional.center,
+                  padding: EdgeInsets.symmetric(
+                      vertical: 16 * pt, horizontal: padDesc),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: descMaxWidth),
+                    child: SingleChildScrollView(
+                      child: Text(
+                        widget.txt != null ? widget.txt! : "ERROR",
+                        style: TextStyle(
+                          fontFamily: "PT Sans",
+                          fontSize: fDesc,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),

@@ -124,7 +124,7 @@ class _MapScreenState extends State<MapScreen> {
                                           alignment:
                                               AlignmentDirectional.centerStart,
                                           decoration: BoxDecoration(
-                                              color: Color(0xE61E1E1E),
+                                              color: Palette().overlayColor,
                                               borderRadius:
                                                   BorderRadius.circular(
                                                       2 * pt)),
